@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="concept">
+    <head>
+        <meta charset="utf8" />
+        <title>Stories</title>
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
+    
+        <!-- Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        
+        <!-- Own resources -->
+        <script src="concept.js"></script>
+        <script src="story.js"></script>
+    </head>
+    
+    <body>
+        <div class="container" ng-controller="StoryController">
+            <div class="page-header">
+                <h1>Stories</h1>
+            </div>
+
+            <table class="table table-bordered table-striped table-hover table-condensed">
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Priority</th>
+                </tr>
+                <tr ng-repeat="story in data.stories">
+                    <td>{{story.id}}</td>
+                    <td>{{story.title}}</td>
+                    <td>{{story.priority}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,83 @@
+{
+    "stories": [
+        {
+            "id": 1
+            , "title": "Define data structure and some data"
+            , "priority": "urgent"
+            , "labels": [
+                "design", "data", "1.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Define data structure by some definitions in the README.md"
+                    , "state": "done"
+                    , "complexitiy": "easy"
+                    , "effort": "soon"
+                }
+                , {
+                    "id": 2
+                    , "title": "Define some data (at least three stories)"
+                    , "state": "wip"
+                    , "complexitiy": "easy"
+                    , "effort": "soon"
+                }
+            ]
+        }
+        , {
+            "id": 2
+            , "title": "Visualize story id, title, and priority in a table"
+            , "priority": "urgent"
+            , "labels": [
+                "ui", "angularjs", "bootstrap", "controller", "table", "1.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Create an index.html with AngularJS and Bootstrap enabled"
+                    , "state": "todo"
+                    , "complexitiy": "easy"
+                    , "effort": "soon"
+                }
+                , {
+                    "id": 2
+                    , "title": "Create a story.js controller that does load the JSON data"
+                    , "state": "todo"
+                    , "complexitiy": "easy"
+                    , "effort": "soon"
+                }
+                , {
+                    "id": 3
+                    , "title": "Use the controller and create a simple table with id, title and table"
+                    , "state": "todo"
+                    , "complexitiy": "easy"
+                    , "effort": "soon"
+                }
+            ]
+        }
+        , {
+            "id": 3
+            , "title": "Provided sortable table (default priority, descending)"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "sorting"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Adjust sorting by priority, descending as default"
+                    , "state": "todo"
+                    , "complexitiy": "easy"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 2
+                    , "title": "Adjust column headers to reverse sorting and allowing change of sorting"
+                    , "state": "todo"
+                    , "complexitiy": "easy"
+                    , "effort": "soon"
+                }
+            ]
+        }
+    ]
+}
