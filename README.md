@@ -50,4 +50,4 @@ looking at http://getbootstrap.com/css/.
 When writing this section the index.html has less than 40 lines of code.
 The result was this:
 
-![First table with some stories](docs/images/first-table.jpg)
+![First table with some stories](docs/images/first-table.png)
