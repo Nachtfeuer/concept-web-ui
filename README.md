@@ -48,3 +48,6 @@ good so have a look what the **container**, **table** and **page-header** provid
 looking at http://getbootstrap.com/css/.
 
 When writing this section the index.html has less than 40 lines of code.
+The result was this:
+
+![First table with some stories](docs/images/first-table.jpg)
