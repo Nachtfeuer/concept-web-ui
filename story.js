@@ -3,6 +3,7 @@ angular.module('concept').controller('StoryController', ['$scope', function($sco
     $scope.sortKey = "id";
     $scope.reverseOrder = false;
     $scope.searchStory = "";
+    $scope.toggles = {};
     
     // loading JSON data
     $.getJSON("data.json", function(data) {
@@ -10,6 +11,25 @@ angular.module('concept').controller('StoryController', ['$scope', function($sco
             $scope.data = data; 
         });
     });
+    
+    /**
+     * @param story the story for which to toggle expand/collapse state.
+     */
+    $scope.toggle = function(story) {
+        if (story.id in $scope.toggles) {
+            $scope.toggles[story.id].expanded = !$scope.toggles[story.id].expanded;            
+        } else {
+            $scope.toggles[story.id] = { expanded: true };
+        }
+    }
+    
+    /**
+     * @param story the story for which to check current expand/collapse state.
+     * @return true when given story is expanded.
+     */
+    $scope.is_expanded = function(story) {
+        return story.id in $scope.toggles && $scope.toggles[story.id].expanded;
+    }
     
     /**
      * @return state for given story.
@@ -42,6 +62,10 @@ angular.module('concept').controller('StoryController', ['$scope', function($sco
         return countDone * 100.0 / story.tasks.length;
     }
 
+    /**
+     * @param story current story for which to calculate average complexity.
+     * @return average complexity for given story.
+     */
     $scope.getAverageComplexity = function(story) {
         if (story.tasks.length === 0) {
             return "none";

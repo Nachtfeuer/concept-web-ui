@@ -81,3 +81,20 @@ that calculates the complexity. Here some thoughts to it:
 
 The result was this:
 ![Third table with searching/filtering and complexity](docs/images/third-table.png)
+
+## Expand and collapse for individual stories
+
+It's now time to show/hide the tasks. Basically I use same row used for the story for displaying
+the tasks. A dictionary remembers for each story the expand/collapse state. The advantage of this
+design is that it is easy to implement and that sorting and filtering still work fine with this.
+The basic AngularJS mechanism used for it is **ng-show**.
+
+The result was this:
+![Fourth table with expand/collapse of stories](docs/images/fourth-table.png)
+
+
+
+
+
+
+

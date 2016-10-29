@@ -34,6 +34,7 @@
 
             <table class="table table-bordered table-striped table-hover table-condensed">
                 <tr>
+                    <th></th>
                     <th>
                         <a href="#" ng-click="sortKey = 'id'; reverseOrder = !reverseOrder">
                             <span ng-show="sortKey == 'id' && !reverseOrder" class="fa fa-caret-down"></span>
@@ -59,7 +60,7 @@
                         <a href="#" ng-click="sortKey = 'avg complexity'; reverseOrder = !reverseOrder">
                             <span ng-show="sortKey == 'avg complexity' && !reverseOrder" class="fa fa-caret-down"></span>
                             <span ng-show="sortKey == 'avg complexity' &&  reverseOrder" class="fa fa-caret-up"></span> 
-                            Avg. Complexity
+                            Complexity
                         </a>
                     </th>
                     <th>
@@ -85,11 +86,37 @@
                     </th>
                 </tr>
                 <tr ng-repeat="story in data.stories | orderBy:sortFunction:reverseOrder | filter:searchStory">
-                    <td>{{story.id}}</td>
-                    <td>{{story.title}}</td>
+                    <td>
+                        <a ng-show="story.tasks.length > 0" ng-click="toggle(story)">
+                            <span ng-show="!is_expanded(story)" class="glyphicon glyphicon-plus"></span>
+                            <span ng-show=" is_expanded(story)" class="glyphicon glyphicon-minus"></span>
+                        </a>
+                    </td>
+                    <td>
+                        {{story.id}}
+                        <div ng-show="is_expanded(story)" ng-repeat="task in story.tasks">
+                            <small>{{story.id}}.{{task.id}}</small>
+                        </div>
+                    </td>
+                    <td>
+                        {{story.title}}
+                        <div ng-show="is_expanded(story)" ng-repeat="task in story.tasks">
+                            <small>{{task.title}}</small>
+                        </div>
+                    </td>
                     <td>{{story.priority}}</td>
-                    <td>{{getAverageComplexity(story)}}</td>
-                    <td>{{getState(story)}}</td>
+                    <td>
+                        {{getAverageComplexity(story)}}
+                        <div ng-show="is_expanded(story)" ng-repeat="task in story.tasks">
+                            <small>{{task.complexity}}</small>
+                        </div>
+                    </td>
+                    <td>
+                        {{getState(story)}}
+                        <div ng-show="is_expanded(story)" ng-repeat="task in story.tasks">
+                            <small>{{task.state}}</small>
+                        </div>
+                    </td>
                     <td>{{story.tasks.length}}</td>
                     <td>{{getPercentageDone(story)|number:2}}%</td>
                 </tr>

@@ -134,5 +134,77 @@
                 }                
             ]
         }
+        , {
+            "id": 6
+            , "title": "Extend to a simple tree table enable showing tasks"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "table", "tree", "tasks", "bootstrap", "1.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Provide dictionary for expand/collapse states and functionality"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 2
+                    , "title": "Provide column (first) with icons for expand/collapse"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 3
+                    , "title": "Display task information when expanded"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }                                
+            ]
+        }
+        , {
+            "id": 7
+            , "title": "Provide column for labels"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "labels", "1.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Provide column for labels and display them"
+                    , "state": "todo"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }                                
+            ]
+        }
+        , {
+            "id": 8
+            , "title": "Provide expand/collapse all (top/left cell in table)"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "table", "1.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Provide +/- handling in top/left cell"
+                    , "state": "todo"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 2
+                    , "title": "Provide expand/collapse function for all stories"
+                    , "state": "todo"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }                                
+            ]
+        }
     ]
 }
