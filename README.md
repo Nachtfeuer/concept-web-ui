@@ -5,7 +5,7 @@ It's about playing with AngularJS, jQuery, Bootstrap and similar.
 Also for myself I would like to have a - hopefully - quite nice
 example where technologies are combined in simple examples.
 
-With the intention of high quality using separation as
+With the intention of high quality I'm using separation as
 much as possible, documentation of the source and this readme
 with all required information that anybody - including me -
 can take parts of the examples to use it for something else.
@@ -29,15 +29,15 @@ As a start those definitions should be sufficient. With this I'm going to write 
 You can see current stories and tasks in the file **data.json**.
 
 ## The first steps
-We require an index.html. Just a few lines an AngularJS and Bootstrap are known.
+You require an index.html. Just a few lines an AngularJS and Bootstrap are known there.
 Of course there are tools to organize that all those dependencies are installed
-locally but as a start we can live without accessing the dependencies in the web.
+locally but as a start you can live without accessing the dependencies in the web.
 
-Next we require the module (application) and at least one controller. The module
+Next you require the module (application) and at least one controller. The module
 you find in **concept.js** and the controller in **story.js**. Ensure that you include
 it in your index.html in that order.
 
-The story controller is very simple. We load the JSON and assign it to the controller field.
+The story controller is very simple. You load the JSON and assign it to the controller field.
 You have to use the apply mechanism as you can see there.
 
 The table has finally just one data row definition with the attribute **ng-repeat**
@@ -54,14 +54,30 @@ The result was this:
 
 ## More columns and sorting
 
-We don't show yet tasks (comes later) but following columns we could add because we have the data:
+I don't show yet tasks (comes later) but following columns could be added because we have the data:
 
-* The number of tasks we have per story.
-* We can show the state by calculating it.
-* We could show the percentage of completion.
+* The number of tasks per story.
+* Showing the state of the story by calculating it.
+* Showing the percentage of completion.
 
-In addition we can adjust the default sorting to the id (ascending order) but allow clicking
+In addition I can adjust the default sorting to the id (ascending order) but allow clicking
 each column header to sort by this one and clicking same column header twice toggles between
 ascending and descending order. The result was this:
 
 ![Second table with sortable columns and additional columns](docs/images/second-table.png)
+
+## Adding searching/filtering
+
+The next step is to add a **searching/filtering capability** and that's using the
+filter Functionality provided by AngularJS.
+
+Again Bootstrap does help that the filter input looks quite nice. In addition I add a further column
+that calculates the complexity. Here some thoughts to it:
+
+* I internaly adjust "easy" to 2, "moderate" to 8 and "difficult" to 13 (taken from fibonacci sequence)
+* Story with three tasks: one easy, one moderate and one difficult is (2+8+13)/3 is ~ 7 => nearest value is 5 so the average complexity will be moderate.
+* Story with three tasks: two easy, 1 difficult: (2*2+13)/3 is ~ 5 so average complexity will be moderate
+* For unknown complexity I take 144 (also from fibonacci sequence). Of course I assume that stories are kept as small as possible. If the story has more than one difficult task you probably should consider to breakdown the story into two or even more stories. Unknown complexity anyway should enforce that too.
+
+The result was this:
+![Third table with searching/filtering and complexity](docs/images/third-table.png)

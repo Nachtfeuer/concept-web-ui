@@ -12,14 +12,14 @@
                     "id": 1
                     , "title": "Define data structure by some definitions in the README.md"
                     , "state": "done"
-                    , "complexitiy": "easy"
+                    , "complexity": "easy"
                     , "effort": "soon"
                 }
                 , {
                     "id": 2
                     , "title": "Define some data (at least three stories)"
                     , "state": "done"
-                    , "complexitiy": "easy"
+                    , "complexity": "easy"
                     , "effort": "soon"
                 }
             ]
@@ -36,21 +36,21 @@
                     "id": 1
                     , "title": "Create an index.html with AngularJS and Bootstrap enabled"
                     , "state": "done"
-                    , "complexitiy": "easy"
+                    , "complexity": "easy"
                     , "effort": "soon"
                 }
                 , {
                     "id": 2
                     , "title": "Create a story.js controller that does load the JSON data"
                     , "state": "done"
-                    , "complexitiy": "easy"
+                    , "complexity": "easy"
                     , "effort": "soon"
                 }
                 , {
                     "id": 3
                     , "title": "Use the controller and create a simple table with id, title and table"
                     , "state": "done"
-                    , "complexitiy": "easy"
+                    , "complexity": "easy"
                     , "effort": "soon"
                 }
             ]
@@ -60,21 +60,21 @@
             , "title": "Provided sortable table (default id, ascending)"
             , "priority": "normal"
             , "labels": [
-                "ui", "sorting", "table"
+                "ui", "sorting", "table", "1.0"
             ]
             , "tasks": [
                 {
                     "id": 1
                     , "title": "Adjust sorting by id, ascending as default"
                     , "state": "done"
-                    , "complexitiy": "easy"
+                    , "complexity": "easy"
                     , "effort": "soon"
                 },
                 {
                     "id": 2
                     , "title": "Adjust column headers to reverse sorting and allowing change of sorting"
                     , "state": "done"
-                    , "complexitiy": "easy"
+                    , "complexity": "easy"
                     , "effort": "soon"
                 }
             ]
@@ -84,28 +84,52 @@
             , "title": "New columns: state, number of tasks and percentage done"
             , "priority": "normal"
             , "labels": [
-                "ui", "table"
+                "ui", "table", "1.0"
             ]
             , "tasks": [
                 {
                     "id": 1
                     , "title": "Adding column for state (calculating it)"
                     , "state": "done"
-                    , "complexitiy": "easy"
+                    , "complexity": "easy"
                     , "effort": "soon"
                 },
                 {
                     "id": 2
                     , "title": "Adding column for number of tasks"
                     , "state": "done"
-                    , "complexitiy": "easy"
+                    , "complexity": "easy"
                     , "effort": "soon"
                 },
                 {
                     "id": 3
                     , "title": "Adding column for % done"
-                    , "state": "todo"
-                    , "complexitiy": "easy"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }                
+            ]
+        }
+        , {
+            "id": 5
+            , "title": "Provide searching/filtering capability and a new column for complexity"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "table", "search", "filter", "1.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Adding column for complexitiy (calculated)"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 2
+                    , "title": "Adding searching/filtering capability"
+                    , "state": "done"
+                    , "complexity": "easy"
                     , "effort": "soon"
                 }                
             ]

@@ -2,6 +2,7 @@ angular.module('concept').controller('StoryController', ['$scope', function($sco
     $scope.data = {};
     $scope.sortKey = "id";
     $scope.reverseOrder = false;
+    $scope.searchStory = "";
     
     // loading JSON data
     $.getJSON("data.json", function(data) {
@@ -40,6 +41,36 @@ angular.module('concept').controller('StoryController', ['$scope', function($sco
         
         return countDone * 100.0 / story.tasks.length;
     }
+
+    $scope.getAverageComplexity = function(story) {
+        if (story.tasks.length === 0) {
+            return "none";
+        }
+
+        var complexity = story.tasks.reduce(function(total, task) {
+            if (task.complexity === "easy") {
+                total += 2;
+            } else if (task.complexity == "moderate") {
+                total += 8;
+            } else if (task.complexity == "difficult") {
+                total += 13;
+            } else if (task.complexity == "unknown") {
+                total += 144;
+            }
+            return total;
+        }, 0);
+
+        var averageComplexity =  complexity / story.tasks.length;
+
+        if (averageComplexity < 5) { // (2+8)/2 = 5
+            return "easy";
+        } else if (averageComplexity < 10.5) { // (8+13)/2 = 10.5
+            return "moderate";
+        } else if (averageComplexity < 78.5) { // (13+144)/2 = 78.5
+            return "difficult";
+        }
+        return "unknown";
+    }
     
     /**
      * @return Value for sort depending on currently adjusted sort key.
@@ -51,6 +82,8 @@ angular.module('concept').controller('StoryController', ['$scope', function($sco
             return story.title;
         } else if ($scope.sortKey === "priority") {
             return story.priority;
+        } else if ($scope.sortKey === "avg complexity") {
+            return $scope.getAverageComplexity(story);
         } else if ($scope.sortKey === "state") {
             return $scope.getState(story);
         } else if ($scope.sortKey === "#tasks") {
