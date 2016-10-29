@@ -51,3 +51,17 @@ When writing this section the index.html has less than 40 lines of code.
 The result was this:
 
 ![First table with some stories](docs/images/first-table.png)
+
+## More columns and sorting
+
+We don't show yet tasks (comes later) but following columns we could add because we have the data:
+
+* The number of tasks we have per story.
+* We can show the state by calculating it.
+* We could show the percentage of completion.
+
+In addition we can adjust the default sorting to the id (ascending order) but allow clicking
+each column header to sort by this one and clicking same column header twice toggles between
+ascending and descending order. The result was this:
+
+![Second table with sortable columns and additional columns](docs/images/second-table.png)

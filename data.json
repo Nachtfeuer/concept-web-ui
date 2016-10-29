@@ -18,7 +18,7 @@
                 , {
                     "id": 2
                     , "title": "Define some data (at least three stories)"
-                    , "state": "wip"
+                    , "state": "done"
                     , "complexitiy": "easy"
                     , "effort": "soon"
                 }
@@ -35,21 +35,21 @@
                 {
                     "id": 1
                     , "title": "Create an index.html with AngularJS and Bootstrap enabled"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexitiy": "easy"
                     , "effort": "soon"
                 }
                 , {
                     "id": 2
                     , "title": "Create a story.js controller that does load the JSON data"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexitiy": "easy"
                     , "effort": "soon"
                 }
                 , {
                     "id": 3
                     , "title": "Use the controller and create a simple table with id, title and table"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexitiy": "easy"
                     , "effort": "soon"
                 }
@@ -57,26 +57,57 @@
         }
         , {
             "id": 3
-            , "title": "Provided sortable table (default priority, descending)"
+            , "title": "Provided sortable table (default id, ascending)"
             , "priority": "normal"
             , "labels": [
-                "ui", "sorting"
+                "ui", "sorting", "table"
             ]
             , "tasks": [
                 {
                     "id": 1
-                    , "title": "Adjust sorting by priority, descending as default"
-                    , "state": "todo"
+                    , "title": "Adjust sorting by id, ascending as default"
+                    , "state": "done"
                     , "complexitiy": "easy"
                     , "effort": "soon"
                 },
                 {
                     "id": 2
                     , "title": "Adjust column headers to reverse sorting and allowing change of sorting"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexitiy": "easy"
                     , "effort": "soon"
                 }
+            ]
+        }
+        , {
+            "id": 4
+            , "title": "New columns: state, number of tasks and percentage done"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "table"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Adding column for state (calculating it)"
+                    , "state": "done"
+                    , "complexitiy": "easy"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 2
+                    , "title": "Adding column for number of tasks"
+                    , "state": "done"
+                    , "complexitiy": "easy"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 3
+                    , "title": "Adding column for % done"
+                    , "state": "todo"
+                    , "complexitiy": "easy"
+                    , "effort": "soon"
+                }                
             ]
         }
     ]
