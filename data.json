@@ -216,14 +216,14 @@
             , "tasks": [
                 {
                     "id": 1
-                    , "title": "New column actions displaying a pencil icon"
+                    , "title": "New (none printable) column 'actions' displaying a pencil icon"
                     , "state": "todo"
                     , "complexity": "easy"
                     , "effort": "soon"
                 },
                 {
                     "id": 2
-                    , "title": "Define a modal dialog"
+                    , "title": "Define a modal dialog for one story"
                     , "state": "todo"
                     , "complexity": "moderate"
                     , "effort": "soon"
@@ -231,7 +231,7 @@
                 {
                     "id": 3
                     , "title": "Displaying dialog when clicking on the pencil showing the story data"
-                    , "state": "todo"
+                    , "state": "moderate"
                     , "complexity": "easy"
                     , "effort": "soon"
                 }                                
@@ -247,7 +247,7 @@
             , "tasks": [
                 {
                     "id": 1
-                    , "title": "Provide dialog for options, starting with show/hide of done stories (default: no)"
+                    , "title": "Provide dialog for options, starting with show/hide of done stories (default: hide done stories)"
                     , "state": "todo"
                     , "complexity": "moderate"
                     , "effort": "soon"
@@ -261,7 +261,7 @@
                 },
                 {
                     "id": 3
-                    , "title": "Add show/hide of labels (default:yes)"
+                    , "title": "Add show/hide of labels (default:show labels)"
                     , "state": "todo"
                     , "complexity": "easy"
                     , "effort": "soon"

@@ -100,8 +100,30 @@ Of course all stories should be expandable/collapsable in one step; therefore I 
 The result was this:
 ![Fifth table with expand/collapse of all stories](docs/images/fifth-table.png)
 
+## Story service
 
+The **story.js** (controller) has getting a bit long. There are three story functions which do not depend on $scope which are:
 
+* getState
+* getAverageComplexitiy
+* getPercentageDone
 
+I'm moving that into a service (**story-service.js**) which is told to behave like
+a singleton in AngularJS. The important detail you have to know: you have to pass
+the service name in single quotes afther $scope variable and then without the quotes
+as parameter in the function:
 
+```
+angular.module('concept').controller('StoryController', ['$scope', 'Story', function($scope, Story) {
+```
 
+Since I also would like to use the functions in the HTML I simpy reference them in the controller:
+
+```
+    // service functions
+    $scope.getState = Story.getState;
+    $scope.getPercentageDone = Story.getPercentageDone;
+    $scope.getAverageComplexity = Story.getAverageComplexity;
+```
+
+That's all. The controller is now significant smaller.
