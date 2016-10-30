@@ -60,7 +60,7 @@
             , "title": "Provided sortable table (default id, ascending)"
             , "priority": "normal"
             , "labels": [
-                "ui", "sorting", "table", "1.0"
+                "ui", "sorting", "table", "angularjs", "1.0"
             ]
             , "tasks": [
                 {
@@ -115,7 +115,7 @@
             , "title": "Provide searching/filtering capability and a new column for complexity"
             , "priority": "normal"
             , "labels": [
-                "ui", "table", "search", "filter", "1.0"
+                "ui", "table", "search", "angularjs", "filter", "1.0"
             ]
             , "tasks": [
                 {
@@ -139,7 +139,7 @@
             , "title": "Extend to a simple tree table enable showing tasks"
             , "priority": "normal"
             , "labels": [
-                "ui", "table", "tree", "tasks", "bootstrap", "1.0"
+                "ui", "table", "tree", "tasks", "controller", "bootstrap", "1.0"
             ]
             , "tasks": [
                 {
@@ -167,16 +167,16 @@
         }
         , {
             "id": 7
-            , "title": "Provide column for labels"
+            , "title": "Display labels after the title"
             , "priority": "normal"
             , "labels": [
-                "ui", "labels", "1.0"
+                "ui", "labels", "bootstrap", "1.0"
             ]
             , "tasks": [
                 {
                     "id": 1
-                    , "title": "Provide column for labels and display them"
-                    , "state": "todo"
+                    , "title": "Display labels after the title"
+                    , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
                 }                                
@@ -193,13 +193,75 @@
                 {
                     "id": 1
                     , "title": "Provide +/- handling in top/left cell"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
                 },
                 {
                     "id": 2
                     , "title": "Provide expand/collapse function for all stories"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }                                
+            ]
+        }
+        , {
+            "id": 9
+            , "title": "Display one story in a dialog (readonly the moment)"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "dialog", "1.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "New column actions displaying a pencil icon"
+                    , "state": "todo"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 2
+                    , "title": "Define a modal dialog"
+                    , "state": "todo"
+                    , "complexity": "moderate"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 3
+                    , "title": "Displaying dialog when clicking on the pencil showing the story data"
+                    , "state": "todo"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }                                
+            ]
+        }
+        , {
+            "id": 10
+            , "title": "Provide options"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "dialog", "1.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Provide dialog for options, starting with show/hide of done stories (default: no)"
+                    , "state": "todo"
+                    , "complexity": "moderate"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 2
+                    , "title": "Organize icon top/right to open dialog"
+                    , "state": "todo"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 3
+                    , "title": "Add show/hide of labels (default:yes)"
                     , "state": "todo"
                     , "complexity": "easy"
                     , "effort": "soon"

@@ -93,6 +93,13 @@ The result was this:
 ![Fourth table with expand/collapse of stories](docs/images/fourth-table.png)
 
 
+## Expand and collapse for all stories and labels
+
+Of course all stories should be expandable/collapsable in one step; therefore I place a icon in the outer left cell of the column header. The **ng-show** depends on a scope variable remembering current toggle state and a scope function **toggleAllStories** does the job (really easy). The labels I simply put after the title since there is enough space. I also tested to print and I have seen that the search form would have been printed; that's why I put a class attribute **hidden-print** at the form (see Bootstrap).
+
+The result was this:
+![Fifth table with expand/collapse of all stories](docs/images/fifth-table.png)
+
 
 
 

@@ -23,7 +23,7 @@
                 <h1>Stories</h1>
             </div>
 
-            <form>
+            <form class="hidden-print">
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-search"></i></div>
@@ -34,7 +34,12 @@
 
             <table class="table table-bordered table-striped table-hover table-condensed">
                 <tr>
-                    <th></th>
+                    <th>
+                        <a ng-click="toggleAllStories()">
+                            <span ng-show="!allExpanded" class="glyphicon glyphicon-plus"></span>
+                            <span ng-show=" allExpanded" class="glyphicon glyphicon-minus"></span>
+                        </a>
+                    </th>
                     <th>
                         <a href="#" ng-click="sortKey = 'id'; reverseOrder = !reverseOrder">
                             <span ng-show="sortKey == 'id' && !reverseOrder" class="fa fa-caret-down"></span>
@@ -100,6 +105,10 @@
                     </td>
                     <td>
                         {{story.title}}
+                        <!-- showing all labels after the title -->
+                        <span ng-repeat="label in story.labels">
+                            <span class="label label-success">{{label}}</span>
+                        </span>
                         <div ng-show="is_expanded(story)" ng-repeat="task in story.tasks">
                             <small>{{task.title}}</small>
                         </div>

@@ -4,6 +4,7 @@ angular.module('concept').controller('StoryController', ['$scope', function($sco
     $scope.reverseOrder = false;
     $scope.searchStory = "";
     $scope.toggles = {};
+    $scope.allExpanded = false;
     
     // loading JSON data
     $.getJSON("data.json", function(data) {
@@ -29,6 +30,17 @@ angular.module('concept').controller('StoryController', ['$scope', function($sco
      */
     $scope.is_expanded = function(story) {
         return story.id in $scope.toggles && $scope.toggles[story.id].expanded;
+    }
+    
+    $scope.toggleAllStories = function() {
+        for (i = 0; i < $scope.data.stories.length; ++i) {
+            if ($scope.data.stories[i].id in $scope.toggles) {
+                $scope.toggles[$scope.data.stories[i].id].expanded = !$scope.allExpanded;            
+            } else {
+                $scope.toggles[$scope.data.stories[i].id] = { expanded: !$scope.allExpanded };
+            }
+        }
+        $scope.allExpanded = !$scope.allExpanded;
     }
     
     /**
