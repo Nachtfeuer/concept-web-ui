@@ -127,3 +127,8 @@ Since I also would like to use the functions in the HTML I simpy reference them 
 ```
 
 That's all. The controller is now significant smaller.
+
+
+## Some jsfiddle links
+ - https://jsfiddle.net/gtb05ud7/6/
+ - https://jsfiddle.net/8qa6q9ek/6/

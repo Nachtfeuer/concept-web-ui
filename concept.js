@@ -1,1 +1,3 @@
-angular.module('concept', []);
+angular.module('concept', [
+    'ConceptServices'
+]);

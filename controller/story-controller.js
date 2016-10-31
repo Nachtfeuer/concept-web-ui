@@ -33,7 +33,7 @@ angular.module('concept').controller('StoryController', ['$scope', 'Story', func
      * @param story the story for which to check current expand/collapse state.
      * @return true when given story is expanded.
      */
-    $scope.is_expanded = function(story) {
+    $scope.isExpanded = function(story) {
         return story.id in $scope.toggles && $scope.toggles[story.id].expanded;
     }
     

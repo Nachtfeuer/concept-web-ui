@@ -12,12 +12,12 @@
 
         <!-- Libraries -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0-rc.0/angular.min.js"></script>
         
         <!-- Own resources -->
         <script src="concept.js"></script>
-        <script src="story-service.js"></script>
-        <script src="story.js"></script>
+        <script src="service/story-service.js"></script>
+        <script src="controller/story-controller.js"></script>
     </head>
     
     <body>
@@ -96,13 +96,13 @@
                 <tr ng-repeat="story in data.stories | orderBy:sortFunction:reverseOrder | filter:searchStory">
                     <td class="hidden-print">
                         <a ng-show="story.tasks.length > 0" ng-click="toggle(story)">
-                            <span ng-show="!is_expanded(story)" class="glyphicon glyphicon-plus"></span>
-                            <span ng-show=" is_expanded(story)" class="glyphicon glyphicon-minus"></span>
+                            <span ng-show="!isExpanded(story)" class="glyphicon glyphicon-plus"></span>
+                            <span ng-show=" isExpanded(story)" class="glyphicon glyphicon-minus"></span>
                         </a>
                     </td>
                     <td>
                         {{story.id}}
-                        <div ng-show="is_expanded(story)" ng-repeat="task in story.tasks">
+                        <div ng-show="isExpanded(story)" ng-repeat="task in story.tasks">
                             <small>{{story.id}}.{{task.id}}</small>
                         </div>
                     </td>
@@ -112,7 +112,7 @@
                         <span ng-repeat="label in story.labels">
                             <span class="label label-default">{{label}}</span>
                         </span>
-                        <div ng-show="is_expanded(story)" ng-repeat="task in story.tasks">
+                        <div ng-show="isExpanded(story)" ng-repeat="task in story.tasks">
                             <small ng-hide="task.state == 'done'">{{task.title}}</small>
                             <s ng-show="task.state == 'done'"><small>{{task.title}}</small></s>
                         </div>
@@ -124,13 +124,13 @@
                     </td>
                     <td>
                         {{getAverageComplexity(story)}}
-                        <div ng-show="is_expanded(story)" ng-repeat="task in story.tasks">
+                        <div ng-show="isExpanded(story)" ng-repeat="task in story.tasks">
                             <small>{{task.complexity}}</small>
                         </div>
                     </td>
                     <td>
                         {{getState(story)}}
-                        <div ng-show="is_expanded(story)" ng-repeat="task in story.tasks">
+                        <div ng-show="isExpanded(story)" ng-repeat="task in story.tasks">
                             <small>{{task.state}}</small>
                         </div>
                     </td>

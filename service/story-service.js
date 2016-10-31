@@ -1,4 +1,4 @@
-angular.module('concept', []).service('Story', function() {
+angular.module('ConceptServices', []).service('Story', function() {
     /**
      * @return state for given story.
      */

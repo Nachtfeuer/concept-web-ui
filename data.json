@@ -268,5 +268,43 @@
                 }                                
             ]
         }
+        , {
+            "id": 11
+            , "title": "Story service"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "angularjs", "service", "1.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Provide a story service and include it in index.html"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 2
+                    , "title": "Move 'getState' into the service"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 3
+                    , "title": "Move 'getAverageComplexity' into the service"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                },
+                {
+                    "id": 4
+                    , "title": "Move 'getPercentageDone' into the service"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }                                
+            ]
+        }
     ]
 }
