@@ -5,6 +5,13 @@ angular.module('concept').controller('StoryController', ['$scope', 'Story', func
     $scope.searchStory = "";
     $scope.toggles = {};
     $scope.allExpanded = false;
+    
+    $scope.$watch(
+        function(scope) { return scope.sortKey },
+        function(newValue, oldValue) {
+            console.log("sortKey new value is " + newValue);
+        }
+    );
 
     // service functions
     $scope.getState = Story.getState;

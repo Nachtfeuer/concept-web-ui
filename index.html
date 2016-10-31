@@ -3,11 +3,10 @@
     <head>
         <meta charset="utf8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Stories</title>
+        <title>Stories &amp; Tasks</title>
         
         <!-- CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
         <!-- Libraries -->
@@ -16,6 +15,7 @@
         
         <!-- Own resources -->
         <script src="concept.js"></script>
+        <script src="directives/story-header.js"></script>
         <script src="service/story-service.js"></script>
         <script src="controller/story-controller.js"></script>
     </head>
@@ -23,7 +23,7 @@
     <body>
         <div class="container" ng-controller="StoryController">
             <div class="page-header">
-                <h1>Stories</h1>
+                <h1>Stories &amp; Tasks</h1>
             </div>
 
             <form class="hidden-print">
@@ -43,55 +43,13 @@
                             <span ng-show=" allExpanded" class="glyphicon glyphicon-minus"></span>
                         </a>
                     </th>
-                    <th>
-                        <a href="#" ng-click="sortKey = 'id'; reverseOrder = !reverseOrder">
-                            <span ng-show="sortKey == 'id' && !reverseOrder" class="fa fa-caret-down"></span>
-                            <span ng-show="sortKey == 'id' &&  reverseOrder" class="fa fa-caret-up"></span> 
-                            Id
-                        </a>
-                    </th>
-                    <th>
-                        <a href="#" ng-click="sortKey = 'title'; reverseOrder = !reverseOrder">
-                            <span ng-show="sortKey == 'title' && !reverseOrder" class="fa fa-caret-down"></span>
-                            <span ng-show="sortKey == 'title' &&  reverseOrder" class="fa fa-caret-up"></span> 
-                            Title
-                        </a>
-                    </th>
-                    <th>
-                        <a href="#" ng-click="sortKey = 'priority'; reverseOrder = !reverseOrder">
-                            <span ng-show="sortKey == 'priority' && !reverseOrder" class="fa fa-caret-down"></span>
-                            <span ng-show="sortKey == 'priority' &&  reverseOrder" class="fa fa-caret-up"></span> 
-                            Priority
-                        </a>
-                    </th>
-                    <th>
-                        <a href="#" ng-click="sortKey = 'avg complexity'; reverseOrder = !reverseOrder">
-                            <span ng-show="sortKey == 'avg complexity' && !reverseOrder" class="fa fa-caret-down"></span>
-                            <span ng-show="sortKey == 'avg complexity' &&  reverseOrder" class="fa fa-caret-up"></span> 
-                            Complexity
-                        </a>
-                    </th>
-                    <th>
-                        <a href="#" ng-click="sortKey = 'state'; reverseOrder = !reverseOrder">
-                            <span ng-show="sortKey == 'state' && !reverseOrder" class="fa fa-caret-down"></span>
-                            <span ng-show="sortKey == 'state' &&  reverseOrder" class="fa fa-caret-up"></span> 
-                            State
-                        </a>
-                    </th>
-                    <th>
-                        <a href="#" ng-click="sortKey = '#tasks'; reverseOrder = !reverseOrder">
-                            <span ng-show="sortKey == '#tasks' && !reverseOrder" class="fa fa-caret-down"></span>
-                            <span ng-show="sortKey == '#tasks' &&  reverseOrder" class="fa fa-caret-up"></span> 
-                            # Tasks
-                        </a>
-                    </th>
-                    <th>
-                        <a href="#" ng-click="sortKey = '%done'; reverseOrder = !reverseOrder">
-                            <span ng-show="sortKey == '%done' && !reverseOrder" class="fa fa-caret-down"></span>
-                            <span ng-show="sortKey == '%done' &&  reverseOrder" class="fa fa-caret-up"></span> 
-                            % Done
-                        </a>
-                    </th>
+                    <th th-story title="Id" key="id" reverse-order="reverseOrder" sort-key="sortKey"></th>
+                    <th th-story title="Title" key="title" reverse-order="reverseOrder" sort-key="sortKey"></th>
+                    <th th-story title="Priority" key="priority" reverse-order="reverseOrder" sort-key="sortKey"></th>
+                    <th th-story title="Complexity" key="complexity" reverse-order="reverseOrder" sort-key="sortKey"></th>
+                    <th th-story title="State" key="state" reverse-order="reverseOrder" sort-key="sortKey"></th>
+                    <th th-story title="# Tasks" key="#tasks" reverse-order="reverseOrder" sort-key="sortKey"></th>
+                    <th th-story title="# Done" key="%done" reverse-order="reverseOrder" sort-key="sortKey"></th>
                 </tr>
                 <tr ng-repeat="story in data.stories | orderBy:sortFunction:reverseOrder | filter:searchStory">
                     <td class="hidden-print">

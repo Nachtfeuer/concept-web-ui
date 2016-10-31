@@ -128,6 +128,41 @@ Since I also would like to use the functions in the HTML I simpy reference them 
 
 That's all. The controller is now significant smaller.
 
+## Directive for a column header
+
+I have to say that this topic has been a bit of pain. Also it was clear to me how the idea is the
+problems were hidden somewhere in the details. Have a look at **story-header.js**. Finally I 
+were able to define a header likes this
+
+```
+<th th-story title="Title" key="title" reverse-order="reverseOrder" sort-key="sortKey"></th>
+```
+
+Just to remember: The original code (see after here) is about changing the sort key
+as well as the sorting order when you click the same colum header again. The now hidden
+code is this one (specific for the title column):
+
+```
+<a href="#" ng-click="sortKey = 'title'; reverseOrder = !reverseOrder">
+    <span ng-show="sortKey == 'title' && !reverseOrder" class="fa fa-caret-down"></span>
+    <span ng-show="sortKey == 'title' &&  reverseOrder" class="fa fa-caret-up"></span>
+    Title
+</a>
+```
+
+The first two value are configure to be just input. The other value are configure that they
+can be overwritten. When you click on the header the sorting toggles between ascending and
+descending order and it also sets the sort key to the given column.
+
+Usually when displaying the title you can do it immediately so you use `{{title}}`. But using
+the `ng-click` and `ng-show` attribute you have late evaluation so you leave away the curly brackets.
+
+After I have found out that details the task were basically done. So the directive doesn't look
+difficult.
+
+Please also keep in mind not to use same model as the app. I'm using here `ConceptDirectives` and
+you have to register it as the application (see **concept.js**).
+
 
 ## Some jsfiddle links
  - https://jsfiddle.net/gtb05ud7/6/

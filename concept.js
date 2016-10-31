@@ -1,3 +1,4 @@
 angular.module('concept', [
-    'ConceptServices'
+    'ConceptServices',
+    'ConceptDirectives'
 ]);
