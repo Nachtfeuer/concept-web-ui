@@ -163,6 +163,36 @@ difficult.
 Please also keep in mind not to use same model as the app. I'm using here `ConceptDirectives` and
 you have to register it as the application (see **concept.js**).
 
+## Using bower
+
+Of course all dependencies should be kept locally when you are going to deploy your static files on a server.
+Therefor `bower` is the commonly used tool. You install it with:
+
+```
+npm install -g bower
+```
+
+You then can define a simple `bower.json` where you define the package name as well as the dependencies
+and its version. Then you simply call:
+
+```
+bower install
+```
+
+I like to have a different name for those dependencies as used as default; therefor I added a `.bowerrc`
+in the root of the project specifying another folder.
+
+Finally I did have to change the url's now refering to a relativ local path:
+
+```
+<!-- CSS -->
+<link rel="stylesheet" href="deps/bootstrap-css/css/bootstrap.min.css">
+<link rel="stylesheet" href="deps/font-awesome/css/font-awesome.min.css">
+
+<!-- Libraries -->
+<script type="text/javascript" src="deps/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="deps/angularjs/angular.min.js"></script>
+```
 
 ## Some jsfiddle links
  - https://jsfiddle.net/gtb05ud7/6/

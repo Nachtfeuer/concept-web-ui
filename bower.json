@@ -1,0 +1,10 @@
+{
+    "name": "concept-web-ui",
+    "version": "1.0",
+    "dependencies": {
+        "angularjs": "1.5.8",
+        "jquery": "3.1.1",
+        "bootstrap-css": "3.3.6",
+        "font-awesome": "4.2.0"
+    }
+}
