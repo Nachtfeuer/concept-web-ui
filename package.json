@@ -1,0 +1,16 @@
+{
+    "name": "concept-web-ui"
+    , "version": "1.0.0"
+    , "dependencies": {
+        "bower": "1.7.9"
+        , "grunt-cli": "1.2.0"
+        , "grunt-ngdocs": "0.2.10"
+        , "grunt-contrib-clean": "1.0.0"
+    }
+    , "repository": {
+        "type": "git"
+        , "url": "https://github.com/Nachtfeuer/concept-web-ui"
+    }
+    , "author": "Thomas Lehmann"
+    , "license": "MIT"
+}

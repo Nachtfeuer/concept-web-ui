@@ -194,6 +194,29 @@ Finally I did have to change the url's now refering to a relativ local path:
 <script type="text/javascript" src="deps/angularjs/angular.min.js"></script>
 ```
 
+## npm packages, ngdocs and grunt
+
+Of course I would like to have a nice HTML documentation like Javadoc or Doxygen.
+There is a way to achieve it using ngdocs. You have to maintain some
+config files to make it happen:
+
+* The **package.json** - From last section you already know that **bower** is required. With this section **grunt-cli** and **ngdocs** will be added (just look at the file).
+* **Gruntfile.js** - That's the config file for the task runner. There's a task for ngdocs and one for cleanup.
+
+The only thing to do then:
+
+```
+grunt
+# or
+grunt clean
+# or
+grunt ngdocs
+```
+
+After that you have under build/docs/index.html the HTML Documentation for your files. The Gruntfile.js of this project is really easy to understand how it works. I have not done it but there is also module available (connect) that a server runs for you so you could see the docs at http://localhost:8080/docs.
+
+For the documentation (markdown) just have a look at current Javascript files.
+
 ## Some jsfiddle links
  - https://jsfiddle.net/gtb05ud7/6/
  - https://jsfiddle.net/8qa6q9ek/6/

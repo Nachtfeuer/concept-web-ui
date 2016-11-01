@@ -1,6 +1,31 @@
+/**
+ * @ngdoc service
+ * @name ConceptServices.service:Story
+ * @description
+ * The story service provides function operating on a
+ * data element representing a story.
+ */
 angular.module('ConceptServices', []).service('Story', function() {
+
     /**
-     * @return state for given story.
+     * @ngdoc method
+     * @name getState
+     * @methodOf ConceptServices.service:Story
+     * @description
+     * 
+     * Each task can have following state:
+     *  - todo - no yet started with given task
+     *  - wip - task has been started
+     *  - done - task is done
+     * 
+     * <p></p>
+     * A story state is:
+     *  - done - when all stories are done
+     *  - todo - when all stories are todo
+     *  - wip - when first two condition are not fulfilled.
+     *
+     * @param {object} story the story for which to check current expand/collapse state.
+     * @returns {string} state of given story.
      */
     this.getState = function(story) {
         if (story.tasks.every(entry => entry.state === "todo")) {
@@ -13,7 +38,19 @@ angular.module('ConceptServices', []).service('Story', function() {
     }
     
     /**
-     * @return percentage value of done stories.
+     * @ngdoc method
+     * @name getPercentageDone
+     * @methodOf ConceptServices.service:Story
+     * @description
+     * It's basically the rule of three:
+     *  - You have the number of all tasks (`a`: which is 100%)
+     *  - we query the number of done tasks (`b`)
+     *  - the percentage of done tasks is then the `b * 100.0 / a`
+     *
+     * <p></p>
+     * When there is no task at all then percentage done is 100%.
+     *
+     * @returns {float} percentage value of done stories.
      */
     this.getPercentageDone = function(story) {
         if (story.tasks.length === 0) {
@@ -31,8 +68,28 @@ angular.module('ConceptServices', []).service('Story', function() {
     }
 
     /**
-     * @param story current story for which to calculate average complexity.
-     * @return average complexity for given story.
+     * @ngdoc method
+     * @name getAverageComplexity
+     * @methodOf ConceptServices.service:Story
+     * @description
+     * Following complexities are recognized:
+     *  - **easy** (internally counts as 2)
+     *  - **moderate** (internally counts as 8)
+     *  - **difficult** (internally counts as 13)
+     *  - **unknown** (internally counts as 144)
+     *
+     * <p></p>
+     * The values are taken from the fibonacci sequence.
+     * The sum of those complexities is the complexity for the story.
+     * Here are some note on the meaning of each complexity:
+     *
+     *  - **None** is "nothing to do" (the only case: you have no task)
+     *  - **Easy** is "can do it adhoc, in a hour or two, today or latest tomorrow"
+     *  - **Moderate** is "have to think about a while, takes a few days to implement only"
+     *  - **Difficult** is "design and implementation might take more than a week, we might have external dependencies, not all facts are 100% clear, we might have to evaluate new technology"
+     *  - **Unknown** is "too many details, a lot of open questions, too big, not understandable, requires split into smaller stories"
+     *
+     * @returns {string} calculated average complexity
      */
     this.getAverageComplexity = function(story) {
         if (story.tasks.length === 0) {

@@ -1,3 +1,5 @@
 prototyping/
 bower_components/
 deps/
+node_modules/
+build/
