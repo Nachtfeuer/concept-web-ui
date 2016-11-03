@@ -217,6 +217,28 @@ After that you have under build/docs/index.html the HTML Documentation for your 
 
 For the documentation (markdown) just have a look at current Javascript files.
 
+## Unit tests and code coverage
+
+Unit tests and code coverage are an important that you are able to detect problems before a
+user/customer is detecting it. Some additions I made to the project with this section:
+
+ * Using **Karma** as test runner.
+ * **Jasmine** and **PhantomJS** added for headless testing.
+ * Added unittests for the story service (getState, getPercentageDone and getAverageComplexity.
+ * HTML code coverage report added.
+ * Using angular-mocks for testing the own AngularJS service.
+ * JSHints added to have some Javascript checker in place.
+
+![Karma, Unittests](docs/images/karma-tests.png)
+
+The code coverage looks like this. When you click on the file you see how often each line has been called
+and a line that has not been called would be red. Also you can see branch coverage which means you can
+see when any if/else path has been missing in your test.
+
+![Karma, Code Coverage](docs/images/karma-code-coverage.png)
+
+
+
 ## Some jsfiddle links
  - https://jsfiddle.net/gtb05ud7/6/
  - https://jsfiddle.net/8qa6q9ek/6/

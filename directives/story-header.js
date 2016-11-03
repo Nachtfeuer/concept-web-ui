@@ -1,3 +1,5 @@
+console.log("starting to load ConceptDirectives.thStory ...");
+
 /**
  * @ngdoc directive
  * @name ConceptDirectives.directive:thStory
@@ -34,5 +36,5 @@ angular.module("ConceptDirectives", []).directive("thStory", function() {
             '  <span ng-show="sortKey == key &&  reverseOrder" class="fa fa-caret-up"></span>' +
             '  {{title}}' +
             '</a>'
-   }
+   };
 });
