@@ -219,12 +219,12 @@ For the documentation (markdown) just have a look at current Javascript files.
 
 ## Unit tests and code coverage
 
-Unit tests and code coverage are an important that you are able to detect problems before a
+Unit tests and code coverage are important tools that you are able to detect problems before a
 user/customer is detecting it. Some additions I made to the project with this section:
 
  * Using **Karma** as test runner.
  * **Jasmine** and **PhantomJS** added for headless testing.
- * Added unittests for the story service (getState, getPercentageDone and getAverageComplexity.
+ * Added unittests for the story service (getState, getPercentageDone and getAverageComplexity).
  * HTML code coverage report added.
  * Using angular-mocks for testing the own AngularJS service.
  * JSHints added to have some Javascript checker in place.
