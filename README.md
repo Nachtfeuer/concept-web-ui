@@ -225,6 +225,7 @@ user/customer is detecting it. Some additions I made to the project with this se
  * Using **Karma** as test runner.
  * **Jasmine** and **PhantomJS** added for headless testing.
  * Added unittests for the story service (getState, getPercentageDone and getAverageComplexity).
+ * Added unittests for the story header directive.
  * HTML code coverage report added.
  * Using angular-mocks for testing the own AngularJS service.
  * JSHints added to have some Javascript checker in place.

@@ -53,10 +53,11 @@ module.exports = function (grunt) {
                     , singleRun: true
                     , browsers: ['PhantomJS']
                     , files: [
-                        'lib/jquery/jquery.js'
+                        'lib/jquery/dist/jquery.js'
                         , 'lib/angularjs/angular.js'
                         , 'lib/angular-mocks/angular-mocks.js'
                         , 'service/story-service.js'
+                        , 'directives/story-header.js'
                         , 'test/*.spec.js'
                     ]
                     , reporters: ['mocha', 'coverage']

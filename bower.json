@@ -6,8 +6,8 @@
         , "angular-mocks": "1.5.8"
         , "jquery": "3.1.1"
         , "bootstrap-css": "3.3.6"
+        , "bootstrap-theme.css": "*"
         , "font-awesome": "4.2.0"
         , "ng-dialog": "0.6.4"
-        , "jasmine": "1.2.0"
     }
 }
