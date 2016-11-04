@@ -8,5 +8,6 @@ console.log("starting to load concept module ...");
  */
 angular.module('concept', [
     'ConceptServices',
-    'ConceptDirectives'
+    'ConceptDirectives',
+    'ngDialog'
 ]);

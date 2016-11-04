@@ -217,21 +217,21 @@
                 {
                     "id": 1
                     , "title": "New (none printable) column 'actions' displaying a pencil icon"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
                 },
                 {
                     "id": 2
-                    , "title": "Define a modal dialog for one story"
-                    , "state": "todo"
+                    , "title": "Define a modal dialog for one story (read only)"
+                    , "state": "done"
                     , "complexity": "moderate"
                     , "effort": "soon"
                 },
                 {
                     "id": 3
                     , "title": "Displaying dialog when clicking on the pencil showing the story data"
-                    , "state": "moderate"
+                    , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
                 }                                

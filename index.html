@@ -8,10 +8,13 @@
         <!-- CSS -->
         <link rel="stylesheet" href="lib/bootstrap-css/css/bootstrap.min.css">
         <link rel="stylesheet" href="lib/bootstrap-theme.css/bootstrap-theme.css">
+        <link rel="stylesheet" href="lib/ng-dialog/css/ngDialog.css">
+        <link rel="stylesheet" href="lib/ng-dialog/css/ngDialog-theme-default.css">
 
         <!-- Libraries -->
         <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
         <script type="text/javascript" src="lib/angularjs/angular.js"></script>
+        <script type="text/javascript" src="lib/ng-dialog/js/ngDialog.js"></script>
         
         <!-- Own resources -->
         <script src="concept.js"></script>
@@ -50,6 +53,7 @@
                     <th th-story title="State" key="state" reverse-order="reverseOrder" sort-key="sortKey"></th>
                     <th th-story title="# Tasks" key="#tasks" reverse-order="reverseOrder" sort-key="sortKey"></th>
                     <th th-story title="# Done" key="%done" reverse-order="reverseOrder" sort-key="sortKey"></th>
+                    <th></th>
                 </tr>
                 <tr ng-repeat="story in data.stories | orderBy:sortFunction:reverseOrder | filter:searchStory">
                     <td class="hidden-print">
@@ -94,8 +98,36 @@
                     </td>
                     <td>{{story.tasks.length}}</td>
                     <td>{{getPercentageDone(story)|number:2}}%</td>
+                    <td>
+                        <a class="glyphicon glyphicon-pencil" ng-click="open(story)"></a>
+                    </td>
                 </tr>
             </table>            
         </div>
+        
+        <script type="text/ng-template" id="templateTestId">
+            <div class="ngdialog-message">
+                <center>
+                    <h2 class="font-size-h2">{{currentStory.title}}</h2>
+                    <span ng-repeat="label in currentStory.labels">
+                        <span class="label label-default">{{label}}</span>
+                    </span>
+                </center>
+                <table class="table table-bordered table-striped table-condensed">
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Complexity</th>
+                        <th>State</th>
+                    </tr>
+                    <tr ng-repeat="task in currentStory.tasks">
+                        <td>{{task.id}}</td>
+                        <td>{{task.title}}</td>
+                        <td>{{task.complexity}}</td>
+                        <td>{{task.state}}</td>
+                    </tr>
+                </table>
+            </div>
+        </script>
     </body>
 </html>

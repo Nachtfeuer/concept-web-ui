@@ -12,7 +12,7 @@
      *  - expand/collapse of an individual story (or all)
      *  - filtering of the table.
      */
-    angular.module('concept').controller('StoryController', ['$scope', 'Story', function($scope, Story) {
+    angular.module('concept').controller('StoryController', ['$scope', 'Story', 'ngDialog', function($scope, Story, ngDialog) {
         $scope.data = {};
         $scope.sortKey = "id";
         $scope.reverseOrder = false;
@@ -111,5 +111,14 @@
             }
             return "";
         };
+        
+        $scope.open = function(story) {
+            $scope.currentStory = story
+            ngDialog.open({
+                template: 'templateTestId',
+                className: 'ngdialog ngdialog-theme-default',
+                scope: $scope
+            });
+        }
     }]);
 })();

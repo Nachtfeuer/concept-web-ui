@@ -238,6 +238,18 @@ see when any if/else path has been missing in your test.
 
 ![Karma, Code Coverage](docs/images/karma-code-coverage.png)
 
+## A dialog for the story
+
+Using `ng-dialog` a dialog is quite easy to implement. However - more and more - I will have to
+provide my own style in addition to the existing one because:
+
+* The dialog is not wide enough.
+* There is no spacing between the labels and the table.
+* A dialog border would be nice as you can see in the demo of `ng-dialog`.
+
+For the moment the dialog content is just readonly.
+
+![A dialog for one story](docs/images/story-dialog.png)
 
 
 ## Some jsfiddle links
