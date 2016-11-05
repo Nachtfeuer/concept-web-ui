@@ -1,0 +1,17 @@
+# Travis configuration
+language: node_js
+node_js:
+    - "4"
+
+before_script:
+    - npm install
+    - bower install
+    
+script: npm test
+
+notifications:
+    email:
+        recipients:
+           - thomas.lehmann.private+travis@gmail.com
+        on_success: always
+on_failure: always
