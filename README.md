@@ -1,5 +1,8 @@
 # Welcome to the concept web-ui repository
 
+[![Build Status](https://travis-ci.org/Nachtfeuer/concept-web-ui.svg?branch=master)](https://travis-ci.org/Nachtfeuer/concept-web-ui)
+
+### Table Of Content
 [**Introduction**](#introduction)  
 [**Consider some data**](#consider-some-data)  
 [**The first steps**](#the-first-steps)  
