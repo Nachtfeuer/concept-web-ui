@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/Nachtfeuer/concept-web-ui.svg?branch=master)](https://travis-ci.org/Nachtfeuer/concept-web-ui)
 
+![Dependency Status](https://david-dm.org/Nachtfeuer/concept-web-ui.svg)
+
 ### Table Of Content
 [**Introduction**](#introduction)  
 [**Consider some data**](#consider-some-data)  
