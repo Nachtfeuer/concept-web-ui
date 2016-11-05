@@ -306,5 +306,29 @@
                 }                                
             ]
         }
+        , {
+            "id": 12
+            , "title": "Build package/distribution"
+            , "priority": "normal"
+            , "labels": [
+                "build", "package", "2.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Copy all required files to build/dist"
+                    , "state": "todo"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }
+                , {
+                    "id": 2
+                    , "title": "Create a .tar.gz of the build/dist including the version"
+                    , "state": "todo"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }                                
+            ]
+        }
     ]
 }

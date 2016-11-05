@@ -4,6 +4,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.initConfig({
         ngdocs: {
             options: {
@@ -20,7 +21,7 @@ module.exports = function (grunt) {
             ]
         }
         , clean: [
-            'build/docs'
+            'build'
         ]
         , jshint: {
             options: {
@@ -66,14 +67,47 @@ module.exports = function (grunt) {
                         , 'controller/*.js': ['coverage']
                         , 'directives/*.js': ['coverage']
                     }
-                    , coverageReporter:  {
+                    , coverageReporter: {
                         type: 'html'
                         , dir: 'build/coverage/'
                     }
                 }
             }
         }
+        , copy: {
+            package: {
+                files: [
+                    {
+                        expand: true
+                        , src: ['concept.js', 'index.html', 'data.json']
+                        , dest: 'build/dist/'
+                        , filter: 'isFile'
+                    }
+                    , {
+                        expand: true
+                        , src: ['service/**']
+                        , dest: 'build/dist/'
+                    }
+                    , {
+                        expand: true
+                        , src: ['controller/**']
+                        , dest: 'build/dist/'
+                    }
+                    , {
+                        expand: true
+                        , src: ['directives/**']
+                        , dest: 'build/dist/'
+                    }
+                    , {
+                        expand: true
+                        , src: ['lib/**']
+                        , dest: 'build/dist/'
+                    }
+                ]
+            }
+        }
     , });
-    grunt.registerTask('default', ['clean', 'jshint', 'ngdocs']);
+    grunt.registerTask('default', ['clean', 'jshint', 'karma', 'ngdocs', 'package']);
     grunt.registerTask('test', ['jshint', 'karma']);
+    grunt.registerTask('package', ['copy:package']);
 };
