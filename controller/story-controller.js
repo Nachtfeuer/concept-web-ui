@@ -113,12 +113,12 @@
         };
         
         $scope.open = function(story) {
-            $scope.currentStory = story
+            $scope.currentStory = story;
             ngDialog.open({
                 template: 'templateTestId',
                 className: 'ngdialog ngdialog-theme-default',
                 scope: $scope
             });
-        }
+        };
     }]);
 })();
