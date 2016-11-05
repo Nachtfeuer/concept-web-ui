@@ -66,12 +66,10 @@ module.exports = function (grunt) {
                         , 'controller/*.js': ['coverage']
                         , 'directives/*.js': ['coverage']
                     }
-                    , coverageReporter: [
-                        {
-                            type: 'html'
-                            , dir: 'build/coverage/'
-                        }
-                    ]
+                    , coverageReporter:  {
+                        type: 'html'
+                        , dir: 'build/coverage/'
+                    }
                 }
             }
         }

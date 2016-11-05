@@ -12,7 +12,7 @@
      *  - expand/collapse of an individual story (or all)
      *  - filtering of the table.
      */
-    angular.module('concept').controller('StoryController', ['$scope', 'Story', 'ngDialog', function($scope, Story, ngDialog) {
+    angular.module('concept').controller('StoryController', ['$scope', 'StoryService', 'ngDialog', function($scope, StoryService, ngDialog) {
         $scope.data = {};
         $scope.sortKey = "id";
         $scope.reverseOrder = false;
@@ -20,10 +20,8 @@
         $scope.toggles = {};
         $scope.allExpanded = false;
 
-        // service functions
-        $scope.getState = Story.getState;
-        $scope.getPercentageDone = Story.getPercentageDone;
-        $scope.getAverageComplexity = Story.getAverageComplexity;
+        // map service to scope
+        $scope.storyService = StoryService;
 
         // loading JSON data
         $.getJSON("data.json", function(data) {
@@ -31,6 +29,13 @@
                 $scope.data = data; 
             });
         });
+        
+        $scope.getToggle = function(story) {
+            if (!(story.id in $scope.toggles)) {
+                $scope.toggles[story.id] = { expanded: false };
+            }
+            return $scope.toggles[story.id];
+        };
 
         /**
          * @ngdoc method
@@ -42,11 +47,8 @@
          * @param {object} story for which to toggle expand/collapse state.
          */
         $scope.toggle = function(story) {
-            if (story.id in $scope.toggles) {
-                $scope.toggles[story.id].expanded = !$scope.toggles[story.id].expanded;            
-            } else {
-                $scope.toggles[story.id] = { expanded: true };
-            }
+            var entry = $scope.getToggle(story);
+            entry.expanded = !entry.expanded;
         };
 
         /**
@@ -71,47 +73,12 @@
          */
         $scope.toggleAllStories = function() {
             for (var i = 0; i < $scope.data.stories.length; ++i) {
-                if ($scope.data.stories[i].id in $scope.toggles) {
-                    $scope.toggles[$scope.data.stories[i].id].expanded = !$scope.allExpanded;            
-                } else {
-                    $scope.toggles[$scope.data.stories[i].id] = { expanded: !$scope.allExpanded };
-                }
+                var entry = $scope.getToggle($scope.data.stories[i]);
+                entry.expanded = !$scope.allExpanded;
             }
             $scope.allExpanded = !$scope.allExpanded;
         };
 
-        /**
-         * @ngdoc method
-         * @name sortFunction
-         * @methodOf concept.controller:StoryController
-         * @description
-         *
-         * Usually a string is sufficient for the **orderBy** as sorting criteria
-         * but the story does have some information which are "hidden" in the tasks
-         * like **state** and **complexity*. Therefor we require a sort function
-         * providing the details depending on current sort criteria.
-         *
-         * @returns {object} Value for sort depending on currently adjusted sort key.
-         */
-        $scope.sortFunction = function(story) {
-            if ($scope.sortKey == "id") {
-                return story.id;
-            } else if ($scope.sortKey === "title") {
-                return story.title;
-            } else if ($scope.sortKey === "priority") {
-                return story.priority;
-            } else if ($scope.sortKey === "avg complexity") {
-                return $scope.getAverageComplexity(story);
-            } else if ($scope.sortKey === "state") {
-                return $scope.getState(story);
-            } else if ($scope.sortKey === "#tasks") {
-                return story.tasks.length;
-            } else if ($scope.sortKey === "%done") {
-                return $scope.getPercentageDone(story);
-            }
-            return "";
-        };
-        
         $scope.open = function(story) {
             $scope.currentStory = story;
             ngDialog.open({

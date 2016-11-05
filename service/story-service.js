@@ -3,16 +3,16 @@
 
     /**
      * @ngdoc service
-     * @name ConceptServices.service:Story
+     * @name ConceptServices.service:StoryService
      * @description
      * The story service provides function operating on a
      * data element representing a story.
      */
-    angular.module('ConceptServices', []).service('Story', function () {
+    angular.module('ConceptServices', []).service('StoryService', function () {
         /**
          * @ngdoc method
          * @name getState
-         * @methodOf ConceptServices.service:Story
+         * @methodOf ConceptServices.service:StoryService
          * @description
          * 
          * Each task can have following state:
@@ -50,7 +50,7 @@
         /**
          * @ngdoc method
          * @name getPercentageDone
-         * @methodOf ConceptServices.service:Story
+         * @methodOf ConceptServices.service:StoryService
          * @description
          * It's basically the rule of three:
          *  - You have the number of all tasks (`a`: which is 100%)
@@ -60,6 +60,7 @@
          * <p></p>
          * When there is no task at all then percentage done is 100%.
          *
+         * @param {object} story the story for which to calculate the percentage done.
          * @returns {float} percentage value of done stories.
          */
         this.getPercentageDone = function (story) {
@@ -78,7 +79,7 @@
         /**
          * @ngdoc method
          * @name getAverageComplexity
-         * @methodOf ConceptServices.service:Story
+         * @methodOf ConceptServices.service:StoryService
          * @description
          * Following complexities are recognized:
          *  - **easy** (internally counts as 2)
@@ -97,6 +98,7 @@
          *  - **Difficult** is "design and implementation might take more than a week, we might have external dependencies, not all facts are 100% clear, we might have to evaluate new technology"
          *  - **Unknown** is "too many details, a lot of open questions, too big, not understandable, requires split into smaller stories"
          *
+         * @param {object} story the story for which to calculate the average complexity.
          * @returns {string} calculated average complexity
          */
         this.getAverageComplexity = function (story) {
@@ -130,6 +132,37 @@
             }
             return "unknown";
         };
+
+        /**
+         * @ngdoc method
+         * @name sortFunction
+         * @methodOf ConceptServices.service:StoryService
+         * @description
+         * Depending on sortkey the return value is either the value of a field of
+         * the given story or a calculated value.
+         *
+         * @param {object} story the story for which to provide the value which is taken for sorting.
+         * @returns {object} calculated average complexity
+         */
+        this.sortFunction = function(story, sortKey) {
+            if (sortKey == "id") {
+                return story.id;
+            } else if (sortKey === "title") {
+                return story.title;
+            } else if (sortKey === "priority") {
+                return story.priority;
+            } else if (sortKey === "avg complexity") {
+                return this.getAverageComplexity(story);
+            } else if (sortKey === "state") {
+                return this.getState(story);
+            } else if (sortKey === "#tasks") {
+                return story.tasks.length;
+            } else if (sortKey === "%done") {
+                return this.getPercentageDone(story);
+            }
+            return "";
+        };
+
     });
 
 })();

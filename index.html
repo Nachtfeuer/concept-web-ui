@@ -85,19 +85,19 @@
                         <span class="label label-default" ng-hide="story.priority == 'critical' || story.priority == 'urgent'">{{story.priority}}</span>
                     </td>
                     <td>
-                        {{getAverageComplexity(story)}}
+                        {{storyService.getAverageComplexity(story)}}
                         <div ng-show="isExpanded(story)" ng-repeat="task in story.tasks">
                             <small>{{task.complexity}}</small>
                         </div>
                     </td>
                     <td>
-                        {{getState(story)}}
+                        {{storyService.getState(story)}}
                         <div ng-show="isExpanded(story)" ng-repeat="task in story.tasks">
                             <small>{{task.state}}</small>
                         </div>
                     </td>
                     <td>{{story.tasks.length}}</td>
-                    <td>{{getPercentageDone(story)|number:2}}%</td>
+                    <td>{{storyService.getPercentageDone(story)|number:2}}%</td>
                     <td>
                         <a class="glyphicon glyphicon-pencil" ng-click="open(story)"></a>
                     </td>

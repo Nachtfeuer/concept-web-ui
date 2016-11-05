@@ -1,5 +1,3 @@
-console.log("starting to load ConceptDirectives.thStory ...");
-
 /**
  * @ngdoc directive
  * @name ConceptDirectives.directive:thStory
