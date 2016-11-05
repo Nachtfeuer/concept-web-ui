@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="simple">
+    <head>
+        <title>Simple</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script type="text/javascript">
+        angular.module('simple', []);
+        angular.module('simple', []).controller("SimpleController", ['$scope', function($scope) {
+            $scope.data = [ "one", "two", "three"];
+        }]);
+        </script>
+    </head>
+    
+    <body>
+        <div ng-controller="SimpleController">
+            <span ng-repeat="entry in data"> {{entry}}</span>
+        </div>
+    </body>
+</html>

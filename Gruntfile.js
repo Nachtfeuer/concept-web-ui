@@ -56,8 +56,8 @@ module.exports = function (grunt) {
                         'lib/jquery/dist/jquery.js'
                         , 'lib/angularjs/angular.js'
                         , 'lib/angular-mocks/angular-mocks.js'
-                        , 'service/story-service.js'
-                        , 'directives/story-header.js'
+                        , 'service/*.js'
+                        , 'directives/*.js'
                         , 'test/*.spec.js'
                     ]
                     , reporters: ['mocha', 'coverage']
@@ -66,10 +66,12 @@ module.exports = function (grunt) {
                         , 'controller/*.js': ['coverage']
                         , 'directives/*.js': ['coverage']
                     }
-                    , coverageReporter: {
-                        type: 'html'
-                        , dir: 'build/coverage/'
-                    }
+                    , coverageReporter: [
+                        {
+                            type: 'html'
+                            , dir: 'build/coverage/'
+                        }
+                    ]
                 }
             }
         }

@@ -1,8 +1,6 @@
 # Welcome to the concept web-ui repository
 
-[![Build Status](https://travis-ci.org/Nachtfeuer/concept-web-ui.svg?branch=master)](https://travis-ci.org/Nachtfeuer/concept-web-ui)
-
-![Dependency Status](https://david-dm.org/Nachtfeuer/concept-web-ui.svg)
+[![Build Status](https://travis-ci.org/Nachtfeuer/concept-web-ui.svg?branch=master)](https://travis-ci.org/Nachtfeuer/concept-web-ui) ![Dependency Status](https://david-dm.org/Nachtfeuer/concept-web-ui.svg)
 
 ### Table Of Content
 [**Introduction**](#introduction)  
@@ -28,6 +26,12 @@ With the intention of high quality I'm using separation as
 much as possible, documentation of the source and this readme
 with all required information that anybody - including me -
 can take parts of the examples to use it for something else.
+
+I'm trying to add additional documentation here:
+
+ * [AngularJS](docs/AngularJS.md) -- started
+ * [Bootstrap](docs/Bootstrap.md) -- not yet added
+ * [npm, bower and grunt](docs/Tools.md) -- not yet added
 
 ## Consider some data
 First let us consider some data we would like to visualize.
