@@ -323,7 +323,7 @@
                 }
                 , {
                     "id": 2
-                    , "title": "Create a .tar.gz of the content of build/dist"
+                    , "title": "Create a .tar.gz of the content of build/dist including version in name"
                     , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
