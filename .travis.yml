@@ -12,6 +12,6 @@ script: grunt
 notifications:
     email:
         recipients:
-           - thomas.lehmann.private+travis@gmail.com
+           - thomas.lehmann.private@gmail.com
         on_success: always
-on_failure: always
+        on_failure: always

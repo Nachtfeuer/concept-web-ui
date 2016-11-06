@@ -14,7 +14,7 @@ module.exports = function (grunt) {
                 , html5Mode: false
                 , imageLink: "https://github.com/Nachtfeuer/concept-web-ui"
             }
-            , all: [ 'src/**/*.js' ]
+            , all: ['src/**/*.js']
         }
         , clean: [
                 'build'
@@ -31,17 +31,24 @@ module.exports = function (grunt) {
             }
             , all: [
                 'Gruntfile.js'
-                , 'src/**/*.js' ]
+                , 'src/**/*.js']
         }
         , watch: {
-            files: [ 'src/**/*.js' ]
-            , tasks: ['test']
+            tests: {
+                files: ['src/**/*.js', 'test/*.spec.js' ]
+                , tasks: [ 'test' ]
+            }
+            , copy: {
+                files: ['src/**']
+                , tasks: [ 'copy' ]
+            }
         }
         , karma: {
             unit: {
                 options: {
                     frameworks: ['jasmine']
                     , singleRun: true
+                    , autoWatch: true
                     , browsers: ['PhantomJS']
                     , files: [
                         'lib/jquery/dist/jquery.js'
@@ -67,7 +74,7 @@ module.exports = function (grunt) {
                     {
                         expand: true
                         , cwd: 'src'
-                        , src: [ '**' ]
+                        , src: ['**']
                         , dest: 'build/dist/'
                     }
                     , {
@@ -90,7 +97,7 @@ module.exports = function (grunt) {
                 , files: [{
                     expand: true
                     , cwd: 'build/dist/'
-                    , src: [ '**' ]
+                    , src: ['**']
                     , dest: '/'
                     }]
             }

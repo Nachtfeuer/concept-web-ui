@@ -330,5 +330,36 @@
                 }                                
             ]
         }
+        , {
+            "id": 13
+            , "title": "Display a statistic panel at top right"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "panel", "statistic", "2.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Displaying the number of stories"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }
+                , {
+                    "id": 2
+                    , "title": "Displaying the overall number of tasks"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }
+                , {
+                    "id": 3
+                    , "title": "Displaying the overall number of tasks per state"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }
+            ]
+        }
     ]
 }

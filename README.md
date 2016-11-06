@@ -274,6 +274,15 @@ For the moment the dialog content is just readonly.
 
 ![A dialog for one story](docs/images/story-dialog.png)
 
+## Displaying a statistic
+
+Using `Bootstrap` I display a simple statistic panel at top right:
+
+* Overall number of stories
+* Overall number of tasks.
+* Overall number of tasks per state with different colors.
+
+![Displaying a statistic](docs/images/statistic.png)
 
 ## Some jsfiddle links
  - https://jsfiddle.net/gtb05ud7/6/

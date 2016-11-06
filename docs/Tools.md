@@ -4,8 +4,9 @@
 
 [**How to upgrade npm on Windows?**](#how-to-upgrade-npm-on-windows)  
 [**How to solve too long paths in node_modules on Windows?**](#how-to-solve-too-long-paths-in-node_modules-on-windows)  
-[**How to copy all relevant files into a distribution folder?**](#How-to-copy-all-relevant-files-into-a-distribution-folder)  
+[**How to copy all relevant files into a distribution folder?**](#how-to-copy-all-relevant-files-into-a-distribution-folder)  
 [**How to create a package of your distribution?**](#how-to-create-a-package-of-your-distribution)  
+[**How to watch for changes and trigger tasks?**](#how-to-watch-for-changes-and-trigger-tasks)  
 
 # How to upgrade npm on Windows?
 
@@ -85,3 +86,32 @@ A few notes:
             }
         }
 ```
+
+# How to watch for changes and trigger tasks?
+
+When you check my `Gruntfile.js` you will find the code of the next box.
+It does use `grunt-contrib-watch`.
+
+A few notes:
+
+ * You just say `grunt watch` to activate the observing.
+ * When a JavaScript file in the src folder has changed the tests will run automatically.
+ * When a unittest in the test folder has changed the tests also will run automatically.
+ * Also a change of any file in src path results in an updating of the `build/dist` folder.
+ 
+With this you can have your IDE open and a Browser is displaying the index.html and another
+console is running the watch task.
+
+```
+        , watch: {
+            tests: {
+                files: ['src/**/*.js', 'test/*.spec.js' ]
+                , tasks: [ 'test' ]
+            }
+            , copy: {
+                files: ['src/**']
+                , tasks: [ 'copy' ]
+            }
+        }
+```
+

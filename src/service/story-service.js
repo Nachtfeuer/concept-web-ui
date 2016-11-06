@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     /**
@@ -108,14 +108,11 @@
             var complexity = story.tasks.reduce(function (total, task) {
                 if (task.complexity === "easy") {
                     total += 2;
-                }
-                else if (task.complexity == "moderate") {
+                } else if (task.complexity === "moderate") {
                     total += 8;
-                }
-                else if (task.complexity == "difficult") {
+                } else if (task.complexity === "difficult") {
                     total += 13;
-                }
-                else if (task.complexity == "unknown") {
+                } else if (task.complexity === "unknown") {
                     total += 144;
                 }
                 return total;
@@ -123,11 +120,9 @@
             var averageComplexity = complexity / story.tasks.length;
             if (averageComplexity < 5) { // (2+8)/2 = 5
                 return "easy";
-            }
-            else if (averageComplexity < 10.5) { // (8+13)/2 = 10.5
+            } else if (averageComplexity < 10.5) { // (8+13)/2 = 10.5
                 return "moderate";
-            }
-            else if (averageComplexity < 78.5) { // (13+144)/2 = 78.5
+            } else if (averageComplexity < 78.5) { // (13+144)/2 = 78.5
                 return "difficult";
             }
             return "unknown";
@@ -144,8 +139,8 @@
          * @param {object} story the story for which to provide the value which is taken for sorting.
          * @returns {object} calculated average complexity
          */
-        this.sortFunction = function(story, sortKey) {
-            if (sortKey == "id") {
+        this.sortFunction = function (story, sortKey) {
+            if (sortKey === "id") {
                 return story.id;
             } else if (sortKey === "title") {
                 return story.title;
@@ -163,6 +158,42 @@
             return "";
         };
 
+        /**
+         * @ngdoc method
+         * @name getNumberOfAllTasks
+         * @methodOf ConceptServices.service:StoryService
+         * @description
+         * Calculate the sum of all tasks across all stories using a task filter.
+         *
+         * @param {list} stories the list of stories.
+         * @param {function} taskFilter a filter function with one parameter representing one task.
+         * @returns {int} number of tasks across all stories depending on task filter.
+         */
+        this.getNumberOfAllTasks = function (stories, taskFilter) {
+            if (taskFilter === undefined) {
+                taskFilter = function (task) { return task !== null; };
+            }
+            return stories.reduce(function (storyTotal, story) {
+                return storyTotal + story.tasks.reduce(function (taskTotal, task) {
+                    return taskTotal + (taskFilter(task) ? 1 : 0);
+                }, 0);
+            }, 0);
+        };
+        
+        /**
+         * @ngdoc method
+         * @name getNumberOfAllTasksByState
+         * @methodOf ConceptServices.service:StoryService
+         * @description
+         * Calculate the sum of all tasks across all stories using a task state filter.
+         *
+         * @param {list} stories the list of stories.
+         * @param {function} taskFilter a filter function with one parameter representing one task.
+         * @returns {int} number of tasks across all stories depending on task filter.
+         */
+        this.getNumberOfAllTasksByState = function (stories, state) {
+            var taskFilter = function (task) { return task.state === state; };
+            return this.getNumberOfAllTasks(stories, taskFilter);
+        }
     });
-
 })();
