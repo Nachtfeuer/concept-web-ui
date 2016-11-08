@@ -8,7 +8,7 @@
      * The story service provides function operating on a
      * data element representing a story.
      */
-    angular.module('ConceptServices', []).service('StoryService', function () {
+    angular.module('ConceptServices').service('StoryService', function () {
         /**
          * @ngdoc method
          * @name getState
@@ -164,12 +164,16 @@
          * @methodOf ConceptServices.service:StoryService
          * @description
          * Calculate the sum of all tasks across all stories using a task filter.
+         * When the filter is not defined the default to count each task.
          *
          * @param {list} stories the list of stories.
          * @param {function} taskFilter a filter function with one parameter representing one task.
          * @returns {int} number of tasks across all stories depending on task filter.
          */
         this.getNumberOfAllTasks = function (stories, taskFilter) {
+            if (stories === undefined) {
+                return 0;
+            }
             if (taskFilter === undefined) {
                 taskFilter = function (task) { return task !== null; };
             }
@@ -194,6 +198,6 @@
         this.getNumberOfAllTasksByState = function (stories, state) {
             var taskFilter = function (task) { return task.state === state; };
             return this.getNumberOfAllTasks(stories, taskFilter);
-        }
+        };
     });
 })();

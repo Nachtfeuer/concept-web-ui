@@ -17,8 +17,8 @@ module.exports = function (grunt) {
             , all: ['src/**/*.js']
         }
         , clean: [
-                'build'
-                , '*.tar.gz']
+            'build'
+            , '*.tar.gz']
         , jshint: {
             options: {
                 esversion: 6
@@ -35,12 +35,12 @@ module.exports = function (grunt) {
         }
         , watch: {
             tests: {
-                files: ['src/**/*.js', 'test/*.spec.js' ]
-                , tasks: [ 'test' ]
+                files: ['src/**/*.js', 'test/*.spec.js']
+                , tasks: ['test']
             }
             , copy: {
                 files: ['src/**']
-                , tasks: [ 'copy' ]
+                , tasks: ['copy']
             }
         }
         , karma: {
@@ -99,10 +99,10 @@ module.exports = function (grunt) {
                     , cwd: 'build/dist/'
                     , src: ['**']
                     , dest: '/'
-                    }]
+                }]
             }
         }
-    , });
+    });
     grunt.registerTask('default', ['clean', 'jshint', 'karma', 'ngdocs', 'package']);
     grunt.registerTask('test', ['jshint', 'karma']);
     grunt.registerTask('package', ['copy:package', 'compress:package']);

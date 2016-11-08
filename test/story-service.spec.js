@@ -7,22 +7,22 @@ describe("Story Service, testing 'getState'", function () {
     beforeEach(inject(function($injector) {
         storyService = $injector.get('StoryService');
     }));
-    
+
     it("should calculate the state as done with no tasks", function () {
         var story = {tasks: []};
         expect(storyService.getState(story)).toBe("done");
     });
-    
+
     it("should calculate the state as done with all tasks done", function () {
         var story = {tasks: [{state: "done"}, {state: "done"}]};
         expect(storyService.getState(story)).toBe("done");
     });
-    
+
     it("should calculate the state as todo with all tasks todo", function () {
         var story = {tasks: [{state: "todo"}, {state: "todo"}]};
         expect(storyService.getState(story)).toBe("todo");
     });
-    
+
     it("should calculate the state as wip with at least one wip", function () {
         var story = {tasks: [{state: "todo"}, {state: "wip"}]};
         expect(storyService.getState(story)).toBe("wip");
@@ -160,6 +160,10 @@ describe("Story Service, testing 'getNumberOfAllTasks'", function () {
 
     it("should provide 0 with no story", function () {
         expect(storyService.getNumberOfAllTasks([])).toBe(0);
+    });
+
+    it("should provide 0 with stories undefined", function () {
+        expect(storyService.getNumberOfAllTasks(undefined)).toBe(0);
     });
 
     it("should provide 2 with one story with two tasks", function () {
