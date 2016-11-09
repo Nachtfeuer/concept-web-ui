@@ -1,5 +1,12 @@
 ## Welcome to my own AngularJS FAQ
 
+### Table Of Content
+[**Introduction**](#introduction)  
+[**How to write a simple application?**](#how-to-write-a-simple-application)  
+[**How to write a simple controller?**](#how-to-write-a-simple-controller)  
+[**How to use a simple controller?**](#how-to-use-a-simple-controller)  
+[**How to organize simple searching and filtering?**](#how-to-organize-simple-searching-and-filtering)  
+[**How to do a simple sorting?**](#how-to-do-a-simple-sorting)  
 
 ## Introduction
 
@@ -44,3 +51,31 @@ Have a look at [simple.html](examples/simple.html)!
 The output is then "one two three".
 Have a look at [simple.html](examples/simple.html)!
 
+## How to organize simple searching and filtering?
+
+Reusing the example in simple.html you can simply add `$scope.search = ''` in the
+controller and then adding in `ng-repeat` the search filter as shown. The input
+widget is connected to the controllee field `search` by using `ng-model`.
+
+I also added some more values (one to ten). Just type one character
+(example: an `e` or a `t`) to see the effect immediately.
+
+```
+<b>Search</b>: <input type="text" ng-model="search" autofocus><br/>
+<span ng-repeat="entry in data | filter:search"> {{entry}}</span>
+```
+
+Have a look at [simple-search-and-filter.html](examples/simple-search-and-filter.html)!
+
+## How to do a simple sorting?
+
+The most simple scenario is sorting a list of strings.
+Using the example from searching and filtering you simply can
+use `orderBy` with `toString()` as shown.
+
+```
+<span ng-repeat="entry in data | orderBy:'toString()' | filter:search"> {{entry}}</span>
+```
+
+The initial output is then "eight five four nine one seven six ten three two".
+Have a look at [simple-sort.html](examples/simple-sort.html)!

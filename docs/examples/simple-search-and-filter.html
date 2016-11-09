@@ -6,14 +6,16 @@
         <script type="text/javascript">
         angular.module('simple', []);
         angular.module('simple', []).controller("SimpleController", ['$scope', function($scope) {
-            $scope.data = [ "one", "two", "three"];
+            $scope.data = [ "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+            $scope.search = '';
         }]);
         </script>
     </head>
 
     <body>
         <div ng-controller="SimpleController">
-            <span ng-repeat="entry in data"> {{entry}}</span>
+            <b>Search</b>: <input type="text" ng-model="search" autofocus><br/>
+            <span ng-repeat="entry in data | filter:search"> {{entry}}</span>
         </div>
     </body>
 </html>
