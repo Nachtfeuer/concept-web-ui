@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="simple">
+    <head>
+        <meta charset="utf8" />
+        <title>Simple</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script type="text/javascript">
+        angular.module('simple', []);
+        angular.module('simple').filter('range', function() {
+            return function(items, fromValue, toValue) {
+                toValue = parseInt(toValue);
+                for (var value=parseInt(fromValue); value <= toValue; ++value) {
+                    items.push(value);
+                }
+                return items;
+            }
+        });
+        angular.module('simple').controller("SimpleController", ['$scope', function($scope) {
+            $scope.fromValue = '1';
+            $scope.toValue = '10';
+        }]);
+        </script>
+    </head>
+
+    <body>
+        <div ng-controller="SimpleController">
+            <div style="margin: 0.2cm">
+                <b>From</b>: <input type="text" size="4" ng-model="fromValue" autofocus>
+                <b>To</b>: <input type="text" size="4" ng-model="toValue" ><br/>
+            </div>
+            <table class="table table-bordered table-striped table-condensed" style="width:30%">
+                <tr><th>n</th><th>n*n</th><th>n+n</th><th>2*n+1</th></tr>
+                <tr ng-repeat="n in [] | range:fromValue:toValue">
+                    <td>{{n}}</td><td>{{n*n}}</td><td>{{n+n}}</td><td>{{2*n+1}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

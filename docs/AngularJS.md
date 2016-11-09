@@ -79,3 +79,40 @@ use `orderBy` with `toString()` as shown.
 
 The initial output is then "eight five four nine one seven six ten three two".
 Have a look at [simple-sort.html](examples/simple-sort.html)!
+
+## How to write an own filter?
+
+Basically you write function with following rule for its parameters:
+
+* The first parameter is the container
+* The second parameter is the first parameter when you say: `myfilter:param1`
+* The third parameter is the second parameter when you say: `myfilter:param1:param2`
+* Same for further parmeters (if you want to have them)
+* Each of those parameter (except first one) is a string you might have to call a parse function to convert.
+
+The filter for an integer number range would be following:
+
+```
+angular.module('simple').filter('range', function() {
+    return function(items, fromValue, toValue) {
+        toValue = parseInt(toValue);
+        for (var value=parseInt(fromValue); value <= toValue; ++value) {
+            items.push(value);
+        }
+        return items;
+    }
+});
+```
+
+You use that inside of HTML like this (for the result see the screenshot):
+```
+<tr ng-repeat="n in [] | range:fromValue:toValue">
+    <td>{{n}}</td><td>{{n*n}}</td><td>{{n+n}}</td><td>{{2*n+1}}</td>
+</tr>
+```
+
+The variables `fromValue` and `toValue` are - of course - fields of the controller.
+You should have seen that already from the example with the search field.
+
+Have a look at [math-table.html](examples/math-table.html)!
+![Math Table](images/math-table.png)
