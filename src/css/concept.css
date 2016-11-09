@@ -1,3 +1,23 @@
 .left-margin {
     margin-left: 0.5cm;
 }
+
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+  border: 5px solid green;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-close:before {
+  background: green;
+  border-radius: 3px;
+  color: #bbb;
+  content: '\00D7';
+  font-size: 26px;
+  font-weight: 400;
+  height: 25px;
+  line-height: 26px;
+  position: absolute;
+  right: -1px;
+  text-align: center;
+  top: -1px;
+  width: 30px;
+}

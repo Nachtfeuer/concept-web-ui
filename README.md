@@ -16,6 +16,8 @@
 [**npm packages, ngdocs and grunt**](#npm-packages-ngdocs-and-grunt)  
 [**Unit tests and code coverage**](#unit-tests-and-code-coverage)  
 [**A dialog for the story**](#a-dialog-for-the-story)  
+[**Displaying a statistic**](#displaying-a-statistic)  
+[**Options dialog**](#options-dialog)  
 
 ## Introduction
 It's about playing with AngularJS, jQuery, Bootstrap and similar.
@@ -29,9 +31,9 @@ can take parts of the examples to use it for something else.
 
 I'm trying to add additional documentation here:
 
- * [AngularJS](docs/AngularJS.md) -- started
+ * [AngularJS](docs/AngularJS.md)
  * [Bootstrap](docs/Bootstrap.md) -- not yet added
- * [npm, bower and grunt](docs/Tools.md) -- not yet added
+ * [npm, bower and grunt](docs/Tools.md)
 
 ## Consider some data
 First let us consider some data we would like to visualize.
@@ -283,6 +285,22 @@ Using `Bootstrap` I display a simple statistic panel at top right:
 * Overall number of tasks per state with different colors.
 
 ![Displaying a statistic](docs/images/statistic.png)
+
+## Options dialog
+
+Also using `ng-dialog` I'm now displaying global options. When changing one of them it has
+immediate reaction. You can do following:
+
+* Show/hide of done stories
+* Show/hide of done tasks
+* Show/hide of story labels
+
+In addition I adjusted the dialog with a border and organize the close button to fit with it.
+Basically I'm overwriting the default theme (a bit). The options dialog is extracted as a
+so called partial template. With `ng-include` it's included into the HTML.
+
+![Options dialog](docs/images/options-dialog.png)
+
 
 ## Some jsfiddle links
  - https://jsfiddle.net/gtb05ud7/6/

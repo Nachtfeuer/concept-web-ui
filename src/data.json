@@ -234,38 +234,45 @@
                     , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
-                }                                
+                }
             ]
         }
         , {
             "id": 10
-            , "title": "Provide options"
+            , "title": "Provide stories options"
             , "priority": "normal"
             , "labels": [
-                "ui", "dialog", "1.0"
+                "ui", "dialog", "2.0"
             ]
             , "tasks": [
                 {
                     "id": 1
                     , "title": "Provide dialog for options, starting with show/hide of done stories (default: hide done stories)"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexity": "moderate"
                     , "effort": "soon"
                 },
                 {
                     "id": 2
                     , "title": "Organize icon top/right to open dialog"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
                 },
                 {
                     "id": 3
                     , "title": "Add show/hide of labels (default:show labels)"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
-                }                                
+                },
+                {
+                    "id": 4
+                    , "title": "Customize CSS for dialog to look nicer"
+                    , "state": "todo"
+                    , "complexity": "moderate"
+                    , "effort": "soon"
+                }
             ]
         }
         , {
@@ -303,7 +310,7 @@
                     , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
-                }                                
+                }
             ]
         }
         , {
@@ -327,7 +334,7 @@
                     , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
-                }                                
+                }
             ]
         }
         , {

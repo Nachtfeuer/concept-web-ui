@@ -76,7 +76,7 @@
                             <md-icon class="material-icons md-24">settings</md-icon></a>
                     </th>
                 </tr>
-                <tr ng-repeat="story in data.stories | orderBy:sortFunction:reverseOrder | filter:searchStory">
+                <tr ng-repeat="story in data.stories | orderBy:sortFunction:reverseOrder | filter:searchStory | filter:showStory">
                     <td class="hidden-print">
                         <a ng-show="story.tasks.length > 0" ng-click="toggleService.toggleState(toggles, story.id)">
                             <span ng-show="!toggleService.isExpanded(toggles, story.id)"
@@ -87,17 +87,17 @@
                     </td>
                     <td>
                         {{story.id}}
-                        <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks">
+                        <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks | filter:showTask">
                             <small>{{story.id}}.{{task.id}}</small>
                         </div>
                     </td>
                     <td>
                         {{story.title}}
                         <!-- showing all labels after the title -->
-                        <span ng-repeat="label in story.labels">
+                        <span ng-if="!options.hideStoryLabels" ng-repeat="label in story.labels">
                             <span class="label label-default">{{label}}</span>
                         </span>
-                        <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks">
+                        <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks | filter:showTask">
                             <small ng-hide="task.state == 'done'">{{task.title}}</small>
                             <s ng-show="task.state == 'done'"><small>{{task.title}}</small></s>
                         </div>
@@ -109,13 +109,13 @@
                     </td>
                     <td>
                         {{storyService.getAverageComplexity(story)}}
-                        <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks">
+                        <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks | filter: showTask">
                             <small>{{task.complexity}}</small>
                         </div>
                     </td>
                     <td>
                         {{storyService.getState(story)}}
-                        <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks">
+                        <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks | filter:showTask">
                             <small>{{task.state}}</small>
                         </div>
                     </td>
@@ -127,6 +127,8 @@
                 </tr>
             </table>
         </div>
+
+        <ng-include src="'templates/partials/story-options.html'"></ng-include>
 
         <script type="text/ng-template" id="templateTestId">
             <div class="ngdialog-message">

@@ -24,6 +24,8 @@
             $scope.toggles = {};
             $scope.allExpanded = false;
 
+            $scope.options = { hideDoneStories: false, hideStoryLabels: false, hideDoneTasks: false };
+
             // loading JSON data
             $.getJSON("data.json", function (data) {
                 $scope.$apply(function () {
@@ -48,13 +50,29 @@
                 $scope.allExpanded = !$scope.allExpanded;
             };
 
+            /**
+             * @ngdoc method
+             * @name showStory
+             * @methodOf concept.controller:StoryController
+             * @description
+             * Filter to show stories which are not done only (when option is set)
+             */
+            $scope.showStory = function(story) {
+                return $scope.storyService.getState(story) !== 'done' || !$scope.options.hideDoneStories;
+            };
+
+            $scope.showTask = function(task) {
+                return task.state !== 'done' || !$scope.options.hideDoneTasks;
+            };
+
             $scope.openSettings = function () {
                 ngDialog.open({
-                    template: 'settingsDialog'
+                    template: 'story-options'
                     , className: 'ngdialog ngdialog-theme-default'
                     , scope: $scope
                 });
             };
+
             $scope.open = function (story) {
                 $scope.currentStory = story;
                 ngDialog.open({
