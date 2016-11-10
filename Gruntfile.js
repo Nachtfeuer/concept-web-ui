@@ -63,8 +63,10 @@ module.exports = function (grunt) {
                         'src/**/*.js': ['coverage']
                     }
                     , coverageReporter: {
-                        type: 'html'
-                        , dir: 'build/coverage/'
+                        reporters: [
+                            {type: 'html', dir: 'build/coverage/'},
+                            { type: 'text' }
+                        ]
                     }
                 }
             }

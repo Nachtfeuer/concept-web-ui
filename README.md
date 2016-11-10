@@ -18,7 +18,7 @@
 [**A dialog for the story**](#a-dialog-for-the-story)  
 [**Displaying a statistic**](#displaying-a-statistic)  
 [**Options dialog**](#options-dialog)  
-[**Complexity Report**](#compexity-report)  
+[**Complexity Report**](#complexity-report)  
 
 ## Introduction
 It's about playing with AngularJS, jQuery, Bootstrap and similar.
