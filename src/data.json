@@ -392,5 +392,29 @@
                 }
             ]
         }
+        , {
+            "id": 15
+            , "title": "Writing unit tests for controller"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "controller", "2.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Unit test for the story controller"
+                    , "state": "todo"
+                    , "complexity": "moderate"
+                    , "effort": "soon"
+                }
+                , {
+                    "id": 2
+                    , "title": "Unit test for the story dialog controller"
+                    , "state": "todo"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }
+            ]
+        }
     ]
 }

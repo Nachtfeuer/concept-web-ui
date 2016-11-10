@@ -6,6 +6,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-complexity');
     grunt.initConfig({
         ngdocs: {
             options: {
@@ -102,8 +103,23 @@ module.exports = function (grunt) {
                 }]
             }
         }
+        , complexity: {
+            generic: {
+                src: ['src/**/*.js'],
+                exclude: [],
+                options: {
+                    breakOnErrors: true,
+                    errorsOnly: false,
+                    cyclomatic: 5,
+                    halstead: 10,
+                    maintainability: 100,
+                    hideComplexFunctions: false,
+                    broadcast: false
+                }
+            }
+        }
     });
-    grunt.registerTask('default', ['clean', 'jshint', 'karma', 'ngdocs', 'package']);
-    grunt.registerTask('test', ['jshint', 'karma']);
+    grunt.registerTask('default', ['clean', 'jshint', 'complexity', 'karma', 'ngdocs', 'package']);
+    grunt.registerTask('test', ['jshint', 'complexity', 'karma']);
     grunt.registerTask('package', ['copy:package', 'compress:package']);
 };

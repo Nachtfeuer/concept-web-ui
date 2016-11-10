@@ -92,7 +92,8 @@
              * @name openStory
              * @methodOf concept.controller:StoryController
              * @description
-             * Does open the story dialog.
+             * Does open the story dialog. It's also waiting until the
+             * dialog is opened sending then the clicked story to it.
              */
             $scope.openStory = function (story) {
                 ngDialog.open({
@@ -100,7 +101,7 @@
                     , className: 'ngdialog ngdialog-theme-default'
                 });
 
-                $scope.$on('ngDialog.opened', function (event, $dialog) {
+                $scope.$on('ngDialog.opened', function () {
                     $rootScope.$broadcast('storyEvent', story);
                 });
             };

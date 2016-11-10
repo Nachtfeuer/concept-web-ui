@@ -1,6 +1,5 @@
 (function () {
     'use strict';
-
     /**
      * @ngdoc service
      * @name ConceptServices.service:StoryService
@@ -9,12 +8,36 @@
      * data element representing a story.
      */
     angular.module('ConceptServices').service('StoryService', function () {
+        this.sortCritera = {
+            "id": function (service, story) {
+                return story.id;
+            }
+            , "title": function (service, story) {
+                return story.title;
+            }
+            , "priority": function (service, story) {
+                return story.priority;
+            }
+            , "avg complexity": function (service, story) {
+                return service.getAverageComplexity(story);
+            }
+            , "%done": function (service, story) {
+                return service.getPercentageDone(story);
+            }
+            , "state": function (service, story) {
+                return service.getState(story);
+            }
+            , "#tasks": function (service, story) {
+                return story.tasks.length;
+            }
+        };
+
         /**
          * @ngdoc method
          * @name getState
          * @methodOf ConceptServices.service:StoryService
          * @description
-         * 
+         *
          * Each task can have following state:
          *  - todo - no yet started with given task
          *  - wip - task has been started
@@ -33,7 +56,6 @@
             if (story.tasks.length === 0) {
                 return "done";
             }
-
             if (story.tasks.every(function (entry) {
                     return entry.state === "todo";
                 })) {
@@ -46,7 +68,6 @@
             }
             return "wip";
         };
-
         /**
          * @ngdoc method
          * @name getPercentageDone
@@ -67,15 +88,10 @@
             if (story.tasks.length === 0) {
                 return 100.0;
             }
-            var countDone = story.tasks.reduce(function (total, task) {
-                if (task.state === "done") {
-                    return total + 1;
-                }
-                return total;
-            }, 0);
-            return countDone * 100.0 / story.tasks.length;
+            return story.tasks.reduce(function (total, task) {
+                return total + ((task.state === "done") ? 1 : 0);
+            }, 0) * 100.0 / story.tasks.length;
         };
-
         /**
          * @ngdoc method
          * @name getAverageComplexity
@@ -108,11 +124,14 @@
             var complexity = story.tasks.reduce(function (total, task) {
                 if (task.complexity === "easy") {
                     total += 2;
-                } else if (task.complexity === "moderate") {
+                }
+                else if (task.complexity === "moderate") {
                     total += 8;
-                } else if (task.complexity === "difficult") {
+                }
+                else if (task.complexity === "difficult") {
                     total += 13;
-                } else if (task.complexity === "unknown") {
+                }
+                else if (task.complexity === "unknown") {
                     total += 144;
                 }
                 return total;
@@ -120,14 +139,15 @@
             var averageComplexity = complexity / story.tasks.length;
             if (averageComplexity < 5) { // (2+8)/2 = 5
                 return "easy";
-            } else if (averageComplexity < 10.5) { // (8+13)/2 = 10.5
+            }
+            else if (averageComplexity < 10.5) { // (8+13)/2 = 10.5
                 return "moderate";
-            } else if (averageComplexity < 78.5) { // (13+144)/2 = 78.5
+            }
+            else if (averageComplexity < 78.5) { // (13+144)/2 = 78.5
                 return "difficult";
             }
             return "unknown";
         };
-
         /**
          * @ngdoc method
          * @name sortFunction
@@ -140,24 +160,11 @@
          * @returns {object} calculated average complexity
          */
         this.sortFunction = function (story, sortKey) {
-            if (sortKey === "id") {
-                return story.id;
-            } else if (sortKey === "title") {
-                return story.title;
-            } else if (sortKey === "priority") {
-                return story.priority;
-            } else if (sortKey === "avg complexity") {
-                return this.getAverageComplexity(story);
-            } else if (sortKey === "state") {
-                return this.getState(story);
-            } else if (sortKey === "#tasks") {
-                return story.tasks.length;
-            } else if (sortKey === "%done") {
-                return this.getPercentageDone(story);
+            if (sortKey in this.sortCritera) {
+                return this.sortCritera[sortKey](this, story);
             }
             return "";
         };
-
         /**
          * @ngdoc method
          * @name getNumberOfAllTasks
@@ -175,7 +182,9 @@
                 return 0;
             }
             if (taskFilter === undefined) {
-                taskFilter = function (task) { return task !== null; };
+                taskFilter = function (task) {
+                    return task !== null;
+                };
             }
             return stories.reduce(function (storyTotal, story) {
                 return storyTotal + story.tasks.reduce(function (taskTotal, task) {
@@ -183,7 +192,6 @@
                 }, 0);
             }, 0);
         };
-        
         /**
          * @ngdoc method
          * @name getNumberOfAllTasksByState
@@ -196,7 +204,9 @@
          * @returns {int} number of tasks across all stories depending on task filter.
          */
         this.getNumberOfAllTasksByState = function (stories, state) {
-            var taskFilter = function (task) { return task.state === state; };
+            var taskFilter = function (task) {
+                return task.state === state;
+            };
             return this.getNumberOfAllTasks(stories, taskFilter);
         };
     });

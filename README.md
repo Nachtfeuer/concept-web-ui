@@ -18,6 +18,7 @@
 [**A dialog for the story**](#a-dialog-for-the-story)  
 [**Displaying a statistic**](#displaying-a-statistic)  
 [**Options dialog**](#options-dialog)  
+[**Complexity Report**](#compexity-report)  
 
 ## Introduction
 It's about playing with AngularJS, jQuery, Bootstrap and similar.
@@ -300,6 +301,19 @@ Basically I'm overwriting the default theme (a bit). The options dialog is extra
 so called partial template. With `ng-include` it's included into the HTML.
 
 ![Options dialog](docs/images/options-dialog.png)
+
+## Complexity report
+
+It's also important to check the complexity of the Javascript files. There are
+mainly two criteria:
+
+ * **cyclomatic complexity** - number of distinct paths in your function
+ * **halstaedt** - it's about the number of operators and operands in your function
+ * **maintainability index**
+
+**Please read here**: https://github.com/philbooth/escomplex/blob/master/README.md#metrics
+
+![Complexity](docs/images/complexity.png)
 
 
 ## Some jsfiddle links
