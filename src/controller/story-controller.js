@@ -11,8 +11,8 @@
      *  - expand/collapse of an individual story (or all)
      *  - filtering of the table.
      */
-    angular.module('concept').controller('StoryController', ['$scope', 'StoryService', 'ToggleService', 'ngDialog'
-        , function ($scope, StoryService, ToggleService, ngDialog) {
+    angular.module('concept').controller('StoryController', ['$scope', '$rootScope','StoryService', 'ToggleService', 'ngDialog'
+        , function ($scope, $rootScope, StoryService, ToggleService, ngDialog) {
             // map services to scope
             $scope.storyService = StoryService;
             $scope.toggleService = ToggleService;
@@ -87,12 +87,21 @@
                 });
             };
 
-            $scope.open = function (story) {
-                $scope.currentStory = story;
+            /**
+             * @ngdoc method
+             * @name openStory
+             * @methodOf concept.controller:StoryController
+             * @description
+             * Does open the story dialog.
+             */
+            $scope.openStory = function (story) {
                 ngDialog.open({
-                    template: 'templateTestId'
+                    template: 'story-dialog'
                     , className: 'ngdialog ngdialog-theme-default'
-                    , scope: $scope
+                });
+
+                $scope.$on('ngDialog.opened', function (event, $dialog) {
+                    $rootScope.$broadcast('storyEvent', story);
                 });
             };
     }]);

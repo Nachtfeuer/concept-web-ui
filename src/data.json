@@ -107,7 +107,7 @@
                     , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
-                }                
+                }
             ]
         }
         , {
@@ -162,7 +162,7 @@
                     , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
-                }                                
+                }
             ]
         }
         , {
@@ -179,7 +179,7 @@
                     , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
-                }                                
+                }
             ]
         }
         , {
@@ -203,7 +203,7 @@
                     , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
-                }                                
+                }
             ]
         }
         , {
@@ -269,7 +269,7 @@
                 {
                     "id": 4
                     , "title": "Customize CSS for dialog to look nicer"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexity": "moderate"
                     , "effort": "soon"
                 }
@@ -362,6 +362,30 @@
                 , {
                     "id": 3
                     , "title": "Displaying the overall number of tasks per state"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }
+            ]
+        }
+        , {
+            "id": 14
+            , "title": "Dialog controller using $broadcast and $on"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "controller", "2.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "New story dialog controller observing a story event"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }
+                , {
+                    "id": 2
+                    , "title": "Extending story controller for root scope and broadcast clicked story"
                     , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
