@@ -1,0 +1,24 @@
+<script type="text/ng-template" id="story-dialog">
+    <div class="ngdialog-message">
+        <center>
+            <h2 class="font-size-h2">{{currentStory.title}}</h2>
+            <span ng-repeat="label in currentStory.labels">
+                <span class="label label-default">{{label}}</span>
+            </span>
+        </center>
+        <table class="table table-bordered table-striped table-condensed">
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Complexity</th>
+                <th>State</th>
+            </tr>
+            <tr ng-repeat="task in currentStory.tasks">
+                <td>{{task.id}}</td>
+                <td>{{task.title}}</td>
+                <td>{{task.complexity}}</td>
+                <td>{{task.state}}</td>
+            </tr>
+        </table>
+    </div>
+</script>

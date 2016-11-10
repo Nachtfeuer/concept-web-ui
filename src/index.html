@@ -31,17 +31,7 @@
         <div class="container" ng-controller="StoryController">
 
             <div class="page-header">
-            <div class="panel panel-default pull-right left-margin">
-                <div class="panel-heading text-center"><b>Statistic</b></div>
-                <div class="panel-body">
-                Number of stories: {{data.stories.length}}<br/>
-                Number of all tasks: {{storyService.getNumberOfAllTasks(data.stories)}}<br/>
-                Tasks per state:
-                    <b><span class="text-success">{{storyService.getNumberOfAllTasksByState(data.stories, 'done')}}</span>/
-                       <span class="text-danger">{{storyService.getNumberOfAllTasksByState(data.stories, 'todo')}}</span>/
-                       <span class="text-warning">{{storyService.getNumberOfAllTasksByState(data.stories, 'wip')}}</span></b>
-                </div>
-            </div>
+                <ng-include src="'templates/partials/story-statistic.html'"></ng-include>
                 <h1>Stories &amp; Tasks</h1>
             </div>
 
@@ -54,105 +44,10 @@
                 </div>
             </form>
 
-            <table class="table table-bordered table-striped table-hover table-condensed">
-                <tr>
-                    <th class="hidden-print">
-                        <a ng-click="toggleAllStories()">
-                            <span ng-show="!allExpanded" class="glyphicon glyphicon-plus"></span>
-                            <span ng-show=" allExpanded" class="glyphicon glyphicon-minus"></span>
-                        </a>
-                    </th>
-                    <th th-story title="Id" key="id" reverse-order="reverseOrder" sort-key="sortKey"></th>
-                    <th th-story title="Title" key="title" reverse-order="reverseOrder" sort-key="sortKey"></th>
-                    <th th-story title="Priority" key="priority" reverse-order="reverseOrder" sort-key="sortKey"></th>
-                    <th th-story title="Complexity" key="complexity" reverse-order="reverseOrder" sort-key="sortKey"></th>
-                    <th th-story title="State" key="state" reverse-order="reverseOrder" sort-key="sortKey"></th>
-                    <th th-story title="# Tasks" key="#tasks" reverse-order="reverseOrder" sort-key="sortKey"></th>
-                    <th th-story title="# Done" key="%done" reverse-order="reverseOrder" sort-key="sortKey"></th>
-
-                    <!-- todo: add link and open dialog -->
-                    <th>
-                        <a href="#" ng-click="openSettings()">
-                            <md-icon class="material-icons md-24">settings</md-icon></a>
-                    </th>
-                </tr>
-                <tr ng-repeat="story in data.stories | orderBy:sortFunction:reverseOrder | filter:searchStory | filter:showStory">
-                    <td class="hidden-print">
-                        <a ng-show="story.tasks.length > 0" ng-click="toggleService.toggleState(toggles, story.id)">
-                            <span ng-show="!toggleService.isExpanded(toggles, story.id)"
-                                  class="glyphicon glyphicon-plus"></span>
-                            <span ng-show="toggleService.isExpanded(toggles, story.id)"
-                                  class="glyphicon glyphicon-minus"></span>
-                        </a>
-                    </td>
-                    <td>
-                        {{story.id}}
-                        <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks | filter:showTask">
-                            <small>{{story.id}}.{{task.id}}</small>
-                        </div>
-                    </td>
-                    <td>
-                        {{story.title}}
-                        <!-- showing all labels after the title -->
-                        <span ng-if="!options.hideStoryLabels" ng-repeat="label in story.labels">
-                            <span class="label label-default">{{label}}</span>
-                        </span>
-                        <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks | filter:showTask">
-                            <small ng-hide="task.state == 'done'">{{task.title}}</small>
-                            <s ng-show="task.state == 'done'"><small>{{task.title}}</small></s>
-                        </div>
-                    </td>
-                    <td>
-                        <span class="label label-warning" ng-show="story.priority == 'urgent'">{{story.priority}}</span>
-                        <span class="label label-danger" ng-show="story.priority == 'critical'">{{story.priority}}</span>
-                        <span class="label label-default" ng-hide="story.priority == 'critical' || story.priority == 'urgent'">{{story.priority}}</span>
-                    </td>
-                    <td>
-                        {{storyService.getAverageComplexity(story)}}
-                        <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks | filter: showTask">
-                            <small>{{task.complexity}}</small>
-                        </div>
-                    </td>
-                    <td>
-                        {{storyService.getState(story)}}
-                        <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks | filter:showTask">
-                            <small>{{task.state}}</small>
-                        </div>
-                    </td>
-                    <td>{{story.tasks.length}}</td>
-                    <td>{{storyService.getPercentageDone(story)|number:2}}%</td>
-                    <td>
-                        <a class="glyphicon glyphicon-pencil" ng-click="open(story)"></a>
-                    </td>
-                </tr>
-            </table>
+            <ng-include src="'templates/partials/story-table.html'"></ng-include>
         </div>
 
         <ng-include src="'templates/partials/story-options.html'"></ng-include>
-
-        <script type="text/ng-template" id="templateTestId">
-            <div class="ngdialog-message">
-                <center>
-                    <h2 class="font-size-h2">{{currentStory.title}}</h2>
-                    <span ng-repeat="label in currentStory.labels">
-                        <span class="label label-default">{{label}}</span>
-                    </span>
-                </center>
-                <table class="table table-bordered table-striped table-condensed">
-                    <tr>
-                        <th>Id</th>
-                        <th>Title</th>
-                        <th>Complexity</th>
-                        <th>State</th>
-                    </tr>
-                    <tr ng-repeat="task in currentStory.tasks">
-                        <td>{{task.id}}</td>
-                        <td>{{task.title}}</td>
-                        <td>{{task.complexity}}</td>
-                        <td>{{task.state}}</td>
-                    </tr>
-                </table>
-            </div>
-        </script>
+        <ng-include src="'templates/partials/story-dialog.html'"></ng-include>
     </body>
 </html>

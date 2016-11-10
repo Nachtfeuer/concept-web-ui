@@ -61,10 +61,24 @@
                 return $scope.storyService.getState(story) !== 'done' || !$scope.options.hideDoneStories;
             };
 
+            /**
+             * @ngdoc method
+             * @name showTask
+             * @methodOf concept.controller:StoryController
+             * @description
+             * Filter to show tasks which are not done only (when option is set)
+             */
             $scope.showTask = function(task) {
                 return task.state !== 'done' || !$scope.options.hideDoneTasks;
             };
 
+            /**
+             * @ngdoc method
+             * @name openSettings
+             * @methodOf concept.controller:StoryController
+             * @description
+             * Does open the story options dialog.
+             */
             $scope.openSettings = function () {
                 ngDialog.open({
                     template: 'story-options'
