@@ -11,8 +11,8 @@
      *  - expand/collapse of an individual story (or all)
      *  - filtering of the table.
      */
-    angular.module('concept').controller('StoryController', ['$scope', '$rootScope','StoryService', 'ToggleService', 'ngDialog'
-        , function ($scope, $rootScope, StoryService, ToggleService, ngDialog) {
+    angular.module('concept').controller('StoryController', ['$rootScope', '$scope', 'StoryService', 'ToggleService', 'ngDialog'
+        , function ($rootScope, $scope, StoryService, ToggleService, ngDialog) {
             // map services to scope
             $scope.storyService = StoryService;
             $scope.toggleService = ToggleService;
@@ -28,6 +28,17 @@
 
             // loading JSON data
             $.getJSON("data.json", function (data) {
+                $scope.setData(data);
+            });
+
+            /**
+             * @ngdoc method
+             * @name setData
+             * @methodOf concept.controller:StoryController
+             * @description
+             * Does replace whole data and update all toggle state to false.
+             */
+            $scope.setData = function(data) {
                 $scope.$apply(function () {
                     $scope.data = data;
                     // adjust initial toggle states.
@@ -35,7 +46,7 @@
                         $scope.toggles[$scope.data.stories[i].id] = false;
                     }
                 });
-            });
+            };
 
             /**
              * @ngdoc method

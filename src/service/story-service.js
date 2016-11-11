@@ -68,6 +68,7 @@
             }
             return "wip";
         };
+
         /**
          * @ngdoc method
          * @name getPercentageDone
@@ -92,6 +93,7 @@
                 return total + ((task.state === "done") ? 1 : 0);
             }, 0) * 100.0 / story.tasks.length;
         };
+
         /**
          * @ngdoc method
          * @name getAverageComplexity
@@ -148,6 +150,7 @@
             }
             return "unknown";
         };
+
         /**
          * @ngdoc method
          * @name sortFunction
@@ -165,6 +168,7 @@
             }
             return "";
         };
+
         /**
          * @ngdoc method
          * @name getNumberOfAllTasks
@@ -192,6 +196,7 @@
                 }, 0);
             }, 0);
         };
+
         /**
          * @ngdoc method
          * @name getNumberOfAllTasksByState

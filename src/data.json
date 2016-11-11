@@ -414,6 +414,51 @@
                     , "complexity": "easy"
                     , "effort": "soon"
                 }
+                , {
+                    "id": 3
+                    , "title": "Configure coverage thresholds"
+                    , "state": "done"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }
+            ]
+        }
+        , {
+            "id": 16
+            , "title": "Edit a task in the story dialog"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "task", "2.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Provide combobox for priority in the table (not saving yet)"
+                    , "state": "todo"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }
+                , {
+                    "id": 2
+                    , "title": "Provide combobox for state in the table (not saving yet)"
+                    , "state": "todo"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }
+                , {
+                    "id": 3
+                    , "title": "Provide combobox for it in the table(not saving yet)"
+                    , "state": "todo"
+                    , "complexity": "easy"
+                    , "effort": "soon"
+                }
+                , {
+                    "id": 4
+                    , "title": "Enable deletion of a task (not saving yet)"
+                    , "state": "todo"
+                    , "complexity": "moderate"
+                    , "effort": "soon"
+                }
             ]
         }
     ]

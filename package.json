@@ -24,6 +24,7 @@
         , "karma-phantomjs-launcher": "1.0.2"
         , "karma-mocha-reporter": "2.0.0"
         , "karma-coverage": "1.1.1"
+        , "karma-threshold-reporter": "0.1.12"
     }
     , "repository": {
         "type": "git"

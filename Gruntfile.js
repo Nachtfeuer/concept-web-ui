@@ -25,7 +25,8 @@ module.exports = function (grunt) {
                 esversion: 6
                 , curly: true
                 , maxdepth: 3
-                , maxstatements: 15
+                , maxstatements: 20
+                , maxparams: 5
                 , unused: true
                 , laxcomma: true
                 , reporter: require('jshint-stylish')
@@ -51,14 +52,16 @@ module.exports = function (grunt) {
                     , singleRun: true
                     , autoWatch: true
                     , browsers: ['PhantomJS']
+                    , logLevel: 'ERROR'
                     , files: [
                         'lib/jquery/dist/jquery.js'
                         , 'lib/angularjs/angular.js'
+                        , 'lib/ng-dialog/js/ngDialog.js'
                         , 'lib/angular-mocks/angular-mocks.js'
                         , 'src/**/*.js'
                         , 'test/*.spec.js'
                     ]
-                    , reporters: ['mocha', 'coverage']
+                    , reporters: ['mocha', 'coverage', 'threshold']
                     , preprocessors: {
                         'src/**/*.js': ['coverage']
                     }
@@ -67,6 +70,12 @@ module.exports = function (grunt) {
                             {type: 'html', dir: 'build/coverage/'},
                             { type: 'text' }
                         ]
+                    }
+                    , thresholdReporter: {
+                        statements: 95,
+                        branches: 97,
+                        functions: 90,
+                        lines: 95
                     }
                 }
             }

@@ -11,12 +11,14 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Complexity</th>
+                <th>Effort</th>
                 <th>State</th>
             </tr>
             <tr ng-repeat="task in story.tasks">
                 <td>{{task.id}}</td>
                 <td>{{task.title}}</td>
                 <td>{{task.complexity}}</td>
+                <td>{{task.effort}}</td>
                 <td>{{task.state}}</td>
             </tr>
         </table>
