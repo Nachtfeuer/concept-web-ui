@@ -1,10 +1,8 @@
-
-
 /**
  * @ngdoc object
- * @name concept
+ * @name ConceptServices
  * @description
- * Main module.
+ * Module for services.
  */
 angular.module('ConceptServices', [
 ]);
@@ -13,10 +11,11 @@ angular.module('ConceptServices', [
  * @ngdoc object
  * @name concept
  * @description
- * Main module.
+ * Main/Application module.
  */
 angular.module('concept', [
-    'ConceptServices',
-    'ConceptDirectives',
-    'ngDialog'
+    'ConceptServices'
+    , 'ConceptDirectives'
+    , 'ngDialog'
+    , 'ngCookies'
 ]);

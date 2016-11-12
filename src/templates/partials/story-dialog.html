@@ -17,10 +17,31 @@
             <tr ng-repeat="task in story.tasks">
                 <td>{{task.id}}</td>
                 <td>{{task.title}}</td>
-                <td>{{task.complexity}}</td>
-                <td>{{task.effort}}</td>
-                <td>{{task.state}}</td>
+                <td>
+                    <select class="form-control" ng-model="task.complexity">
+                        <option value="easy">Easy</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="difficult">Difficult</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-control" ng-model="task.effort">
+                        <option value="soon">Soon</option>
+                        <option value="days">Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="unknonw">Unknown</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="form-control" ng-model="task.state">
+                        <option value="todo">Todo</option>
+                        <option value="wip">Wip</option>
+                        <option value="done">Done</option>
+                    </select>
+                </td>
             </tr>
         </table>
     </div>
 </script>
+

@@ -4,6 +4,7 @@
 
 .ngdialog.ngdialog-theme-default .ngdialog-content {
   border: 5px solid green;
+  width: 60%;
 }
 
 .ngdialog.ngdialog-theme-default .ngdialog-close:before {

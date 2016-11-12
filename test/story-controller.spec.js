@@ -12,12 +12,13 @@ describe("Story Controller", function () {
     }
 
     beforeEach( module('concept'));
-    beforeEach(inject(function($rootScope, $controller, _StoryService_, _ToggleService_, _ngDialog_) {
+    beforeEach(inject(function($rootScope, $controller, _$cookies_, _StoryService_, _ToggleService_, _ngDialog_) {
         rootScope = $rootScope;
         scope = rootScope.$new();
         controller = $controller('StoryController', {
-            '$scope': scope
-            , '$rootScope': rootScope
+            '$rootScope': rootScope
+            , '$scope': scope
+            , '$cookies': _$cookies_
             , 'StoryService': _StoryService_
             , 'ToggleService': _ToggleService_
             , 'ngDialog': _ngDialog_

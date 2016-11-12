@@ -26,7 +26,7 @@ module.exports = function (grunt) {
                 , curly: true
                 , maxdepth: 3
                 , maxstatements: 20
-                , maxparams: 5
+                , maxparams: 6
                 , unused: true
                 , laxcomma: true
                 , reporter: require('jshint-stylish')
@@ -56,8 +56,9 @@ module.exports = function (grunt) {
                     , files: [
                         'lib/jquery/dist/jquery.js'
                         , 'lib/angularjs/angular.js'
-                        , 'lib/ng-dialog/js/ngDialog.js'
                         , 'lib/angular-mocks/angular-mocks.js'
+                        , 'lib/angular-cookies/angular-cookies.js'
+                        , 'lib/ng-dialog/js/ngDialog.js'
                         , 'src/**/*.js'
                         , 'test/*.spec.js'
                     ]

@@ -403,14 +403,14 @@
                 {
                     "id": 1
                     , "title": "Unit test for the story controller"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexity": "moderate"
                     , "effort": "soon"
                 }
                 , {
                     "id": 2
                     , "title": "Unit test for the story dialog controller"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
                 }
@@ -433,22 +433,22 @@
             , "tasks": [
                 {
                     "id": 1
-                    , "title": "Provide combobox for priority in the table (not saving yet)"
-                    , "state": "todo"
+                    , "title": "Provide combobox for effort in the table (not saving yet)"
+                    , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
                 }
                 , {
                     "id": 2
                     , "title": "Provide combobox for state in the table (not saving yet)"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
                 }
                 , {
                     "id": 3
-                    , "title": "Provide combobox for it in the table(not saving yet)"
-                    , "state": "todo"
+                    , "title": "Provide combobox for complexity in the table(not saving yet)"
+                    , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
                 }

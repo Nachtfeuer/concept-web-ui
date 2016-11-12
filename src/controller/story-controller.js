@@ -11,8 +11,8 @@
      *  - expand/collapse of an individual story (or all)
      *  - filtering of the table.
      */
-    angular.module('concept').controller('StoryController', ['$rootScope', '$scope', 'StoryService', 'ToggleService', 'ngDialog'
-        , function ($rootScope, $scope, StoryService, ToggleService, ngDialog) {
+    angular.module('concept').controller('StoryController', ['$rootScope', '$scope', '$cookies', 'StoryService', 'ToggleService', 'ngDialog'
+        , function ($rootScope, $scope, $cookies, StoryService, ToggleService, ngDialog) {
             // map services to scope
             $scope.storyService = StoryService;
             $scope.toggleService = ToggleService;
