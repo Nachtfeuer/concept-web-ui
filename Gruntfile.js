@@ -75,7 +75,7 @@ module.exports = function (grunt) {
                     , thresholdReporter: {
                         statements: 95,
                         branches: 97,
-                        functions: 90,
+                        functions: 88,
                         lines: 95
                     }
                 }

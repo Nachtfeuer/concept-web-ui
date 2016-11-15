@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 var model = {
     data: {}
     , sortKey: "id"
@@ -6,4 +7,5 @@ var model = {
     , toggles: {}
     , allExpanded: false
     , options : { hideDoneStories: false, hideStoryLabels: false, hideDoneTasks: false }
-}
+};
+/* jshint ignore:end */
