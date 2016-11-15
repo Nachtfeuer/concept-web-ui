@@ -16,6 +16,7 @@
             // map services to scope
             $scope.storyService = StoryService;
             $scope.toggleService = ToggleService;
+            $scope.model = model;
 
             $scope.data = {};
             $scope.sortKey = "id";
@@ -40,12 +41,16 @@
              */
             $scope.setData = function(data) {
                 $scope.$apply(function () {
-                    $scope.data = data;
+                    $scope.model.data = data;
                     // adjust initial toggle states.
-                    for (var i=0; i < $scope.data.stories.length; ++i) {
-                        $scope.toggles[$scope.data.stories[i].id] = false;
+                    for (var i=0; i < $scope.model.data.stories.length; ++i) {
+                        $scope.model.toggles[$scope.model.data.stories[i].id] = false;
                     }
                 });
+            };
+
+            $scope.sortFunction = function(story) {
+                return $scope.storyService.sortFunction(story, $scope.model.sortKey);
             };
 
             /**
@@ -57,8 +62,8 @@
              * all stories at once. This is the function for this action.
              */
             $scope.toggleAllStories = function () {
-                $scope.toggleService.setAllToggleStates($scope.toggles, !$scope.allExpanded);
-                $scope.allExpanded = !$scope.allExpanded;
+                $scope.toggleService.setAllToggleStates($scope.model.toggles, !$scope.model.allExpanded);
+                $scope.model.allExpanded = !$scope.model.allExpanded;
             };
 
             /**
@@ -69,7 +74,7 @@
              * Filter to show stories which are not done only (when option is set)
              */
             $scope.showStory = function(story) {
-                return $scope.storyService.getState(story) !== 'done' || !$scope.options.hideDoneStories;
+                return $scope.storyService.getState(story) !== 'done' || !$scope.model.options.hideDoneStories;
             };
 
             /**
@@ -80,7 +85,7 @@
              * Filter to show tasks which are not done only (when option is set)
              */
             $scope.showTask = function(task) {
-                return task.state !== 'done' || !$scope.options.hideDoneTasks;
+                return task.state !== 'done' || !$scope.model.options.hideDoneTasks;
             };
 
             /**

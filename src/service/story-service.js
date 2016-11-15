@@ -42,7 +42,7 @@
          *  - todo - no yet started with given task
          *  - wip - task has been started
          *  - done - task is done
-         * 
+         *
          * <p></p>
          * A story state is:
          *  - done - when all stories are done

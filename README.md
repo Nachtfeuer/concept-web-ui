@@ -21,7 +21,7 @@
 [**Complexity Report**](#complexity-report)  
 
 ## Introduction
-It's about playing with AngularJS, jQuery, Bootstrap and similar.
+It's about playing with **AngularJS (< 2.x)**, jQuery, Bootstrap and similar.
 Also for myself I would like to have a - hopefully - quite nice
 example where technologies are combined in simple examples.
 
@@ -35,6 +35,10 @@ I'm trying to add additional documentation here:
  * [AngularJS](docs/AngularJS.md)
  * [Bootstrap](docs/Bootstrap.md) -- not yet added
  * [npm, bower and grunt](docs/Tools.md)
+
+Sad to say that Angular 2.x is completely different and you basically
+can forget most things you might have learned from here. But that's
+another story.
 
 ## Consider some data
 First let us consider some data we would like to visualize.

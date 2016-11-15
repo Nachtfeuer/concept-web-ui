@@ -25,6 +25,7 @@
         <script src="directives/story-header.js"></script>
         <script src="service/story-service.js"></script>
         <script src="service/toggle-service.js"></script>
+        <script src="model/main-model.js"></script>
         <script src="controller/story-controller.js"></script>
         <script src="controller/story-dialog-controller.js"></script>
     </head>
@@ -41,7 +42,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                        <input type="text" class="form-control" placeholder="Search for a story" ng-model="searchStory">
+                        <input type="text" class="form-control" placeholder="Search for a story" ng-model="model.searchStory">
                     </div>
                 </div>
             </form>

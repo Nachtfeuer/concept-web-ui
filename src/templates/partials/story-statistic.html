@@ -1,11 +1,11 @@
 <div class="panel panel-default pull-right left-margin">
     <div class="panel-heading text-center"><b>Statistic</b></div>
     <div class="panel-body">
-    Number of stories: {{data.stories.length}}<br/>
-    Number of all tasks: {{storyService.getNumberOfAllTasks(data.stories)}}<br/>
+    Number of stories: {{model.data.stories.length}}<br/>
+    Number of all tasks: {{storyService.getNumberOfAllTasks(model.data.stories)}}<br/>
     Tasks per state:
-        <b><span class="text-success">{{storyService.getNumberOfAllTasksByState(data.stories, 'done')}}</span>/
-           <span class="text-danger">{{storyService.getNumberOfAllTasksByState(data.stories, 'todo')}}</span>/
-           <span class="text-warning">{{storyService.getNumberOfAllTasksByState(data.stories, 'wip')}}</span></b>
+        <b><span class="text-success">{{storyService.getNumberOfAllTasksByState(model.data.stories, 'done')}}</span>/
+           <span class="text-danger">{{storyService.getNumberOfAllTasksByState(model.data.stories, 'todo')}}</span>/
+           <span class="text-warning">{{storyService.getNumberOfAllTasksByState(model.data.stories, 'wip')}}</span></b>
     </div>
 </div>
