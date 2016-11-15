@@ -118,7 +118,7 @@
                 });
 
                 $scope.$on('ngDialog.opened', function () {
-                    $rootScope.$broadcast('storyEvent', story);
+                    $rootScope.$broadcast('storyEvent', angular.copy(story));
                 });
             };
     }]);

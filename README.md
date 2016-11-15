@@ -5,6 +5,7 @@
 ### Table Of Content
 [**Introduction**](#introduction)  
 [**Consider some data**](#consider-some-data)  
+[**The model**](#the-model)  
 [**The first steps**](#the-first-steps)  
 [**More columns and sorting**](#more-columns-and-sorting)  
 [**Adding searching/filtering**](#adding-searchingfiltering)  
@@ -19,6 +20,7 @@
 [**Displaying a statistic**](#displaying-a-statistic)  
 [**Options dialog**](#options-dialog)  
 [**Complexity Report**](#complexity-report)  
+[**Editing a story**](#editing-a-story)  
 
 ## Introduction
 It's about playing with **AngularJS (< 2.x)**, jQuery, Bootstrap and similar.
@@ -57,6 +59,15 @@ Let us take stories and tasks as data with following definitions:
 
 As a start those definitions should be sufficient. With this I'm going to write a JSON file.
 You can see current stories and tasks in the file **data.json**.
+
+## The model
+
+This section came later in when I detected that when using `ng-include` for partials that the same
+code suddenly refers to another scope. So partially things were working and partially not. The reason
+is that simple types like integer, floats and strings are copied but dictionaties and list not.
+It's a shallow copy only. Some say you can use a service to put your data at a central place. For now
+I put all data into a variable model (dictionary) ensuring that the content is shared by all thoses
+scopes.
 
 ## The first steps
 You require an index.html. Just a few lines an AngularJS and Bootstrap are known there.
@@ -318,6 +329,16 @@ mainly two criteria:
 **Please read here**: https://github.com/philbooth/escomplex/blob/master/README.md#metrics
 
 ![Complexity](docs/images/complexity.png)
+
+
+## Editing a story
+
+Now selection widgets are used to modify effort, state and complexity of a task. Also with a
+click on a trash icon you can remove a task. The story is copied in the controller with
+`angular.copy` which does a **deep copy** just short before passing to the broadcast.
+Next story will be to provide buttons to save the changes ... (will update this section then)
+
+![Editing a story](docs/images/edit-story-1.png)
 
 
 ## Some jsfiddle links

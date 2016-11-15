@@ -13,6 +13,7 @@
                 <th>Complexity</th>
                 <th>Effort</th>
                 <th>State</th>
+                <th></th>
             </tr>
             <tr ng-repeat="task in story.tasks">
                 <td>{{task.id}}</td>
@@ -39,6 +40,9 @@
                         <option value="wip">Wip</option>
                         <option value="done">Done</option>
                     </select>
+                </td>
+                <td>
+                    <a class="glyphicon glyphicon-trash" ng-click="story.tasks.splice(story.tasks.indexof(task), 1)"></a>
                 </td>
             </tr>
         </table>
