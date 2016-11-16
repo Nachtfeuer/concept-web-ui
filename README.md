@@ -4,8 +4,8 @@
 
 ### Table Of Content
 [**Introduction**](#introduction)  
-[**Introduction**](#introduction)  
 [**Quick start**](#quick-start)  
+[**Consider some data**](#consider-some-data)  
 [**The model**](#the-model)  
 [**The first steps**](#the-first-steps)  
 [**More columns and sorting**](#more-columns-and-sorting)  
