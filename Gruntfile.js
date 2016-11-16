@@ -7,6 +7,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-complexity');
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.initConfig({
         ngdocs: {
             options: {
@@ -129,9 +130,20 @@ module.exports = function (grunt) {
                     broadcast: false
                 }
             }
+        },
+        connect: {
+            server: {
+                options: {
+                    port: 8080
+                    , hostname: '*'
+                    , livereload: true
+                    , base: 'build/dist'
+                }
+            }
         }
     });
     grunt.registerTask('default', ['clean', 'jshint', 'complexity', 'karma', 'ngdocs', 'package']);
     grunt.registerTask('test', ['jshint', 'complexity', 'karma']);
     grunt.registerTask('package', ['copy:package', 'compress:package']);
+    grunt.registerTask('server', ['connect', 'watch'])
 };

@@ -4,7 +4,8 @@
 
 ### Table Of Content
 [**Introduction**](#introduction)  
-[**Consider some data**](#consider-some-data)  
+[**Introduction**](#introduction)  
+[**Quick start**](#quick-start)  
 [**The model**](#the-model)  
 [**The first steps**](#the-first-steps)  
 [**More columns and sorting**](#more-columns-and-sorting)  
@@ -41,6 +42,25 @@ I'm trying to add additional documentation here:
 Sad to say that Angular 2.x is completely different and you basically
 can forget most things you might have learned from here. But that's
 another story.
+
+## Quick start
+The following commands does setup all requires resources and then running unit tests, providing code coverage and code analysis.
+
+```
+npm install
+bower install
+grunt
+```
+
+For development you probably would like to have a comfortable way that you have a running server where
+changed files are automatically updated. Just do:
+
+```
+grunt server
+```
+
+This includes the watching for changes of files and the `application` should be reachable at `http://localhost:8080`.
+
 
 ## Consider some data
 First let us consider some data we would like to visualize.

@@ -131,7 +131,7 @@
                     , "state": "done"
                     , "complexity": "easy"
                     , "effort": "soon"
-                }                
+                }
             ]
         }
         , {
@@ -455,7 +455,7 @@
                 , {
                     "id": 4
                     , "title": "Enable deletion of a task (not saving yet)"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexity": "moderate"
                     , "effort": "soon"
                 }
