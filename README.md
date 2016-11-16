@@ -60,7 +60,13 @@ grunt server
 ```
 
 This includes the watching for changes of files and the `application` should be reachable at `http://localhost:8080`.
+You can current options for `grunt` with `--help` or:
 
+```
+grunt availabletasks
+```
+
+![Available tasks](docs/images/available-tasks.png)
 
 ## Consider some data
 First let us consider some data we would like to visualize.

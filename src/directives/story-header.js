@@ -28,7 +28,7 @@ angular.module("ConceptDirectives", []).directive("thStory", function() {
            sortKey: '=',
            reverseOrder: '='
        },
-       template: 
+       template:
             '<a href="#" ng-click="sortKey = key; reverseOrder = !reverseOrder">' +
             '  <span ng-show="sortKey == key && !reverseOrder" class="fa fa-caret-down"></span>' +
             '  <span ng-show="sortKey == key &&  reverseOrder" class="fa fa-caret-up"></span>' +
