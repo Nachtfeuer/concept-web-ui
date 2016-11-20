@@ -38,6 +38,7 @@ I'm trying to add additional documentation here:
  * [AngularJS](docs/AngularJS.md)
  * [Bootstrap](docs/Bootstrap.md) -- not yet added
  * [npm, bower and grunt](docs/Tools.md)
+ * [Where have been the main difficulties?](docs/MainDifficulties.md)]
 
 Sad to say that Angular 2.x is completely different and you basically
 can forget most things you might have learned from here. But that's
@@ -362,7 +363,9 @@ mainly two criteria:
 Now selection widgets are used to modify effort, state and complexity of a task. Also with a
 click on a trash icon you can remove a task. The story is copied in the controller with
 `angular.copy` which does a **deep copy** just short before passing to the broadcast.
-Next story will be to provide buttons to save the changes ... (will update this section then)
+
+When clicking on the save button the modified story is sent back to the controller which
+then updates the Story in the model.
 
 ![Editing a story](docs/images/edit-story-1.png)
 

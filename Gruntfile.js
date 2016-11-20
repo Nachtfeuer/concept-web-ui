@@ -29,7 +29,7 @@ module.exports = function (grunt) {
                 , curly: true
                 , maxdepth: 3
                 , maxstatements: 20
-                , maxparams: 6
+                , maxparams: 7
                 , unused: true
                 , laxcomma: true
                 , reporter: require('jshint-stylish')
@@ -77,8 +77,8 @@ module.exports = function (grunt) {
                     }
                     , thresholdReporter: {
                         statements: 95,
-                        branches: 97,
-                        functions: 88,
+                        branches: 92,
+                        functions: 90,
                         lines: 95
                     }
                 }
@@ -148,7 +148,7 @@ module.exports = function (grunt) {
         }
     });
     grunt.registerTask('default', ['clean', 'jshint', 'complexity', 'karma', 'ngdocs', 'package']);
-    grunt.registerTask('test', ['jshint', 'complexity', 'karma']);
+    grunt.registerTask('test', ['jshint', 'karma']);
     grunt.registerTask('package', ['copy:package', 'compress:package']);
     grunt.registerTask('server', ['connect', 'watch']);
 };

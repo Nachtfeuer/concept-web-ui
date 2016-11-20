@@ -4,6 +4,7 @@ describe("Story Controller", function () {
     var rootScope;
     var scope;
     var controller;
+    var ngDialog;
     var testData = {
         stories: [
             {id: 1, title: "story one", tasks: [{id: 1, title: "task one one"}]}
@@ -15,6 +16,7 @@ describe("Story Controller", function () {
     beforeEach(inject(function($rootScope, $controller, _$cookies_, _StoryService_, _ToggleService_, _ngDialog_) {
         rootScope = $rootScope;
         scope = rootScope.$new();
+        ngDialog = _ngDialog_;
         controller = $controller('StoryController', {
             '$rootScope': rootScope
             , '$scope': scope
@@ -58,18 +60,17 @@ describe("Story Controller", function () {
         expect(scope.showTask(task)).toBe(false);
     });
 
-    it("should have right data and toggle states", function() {
-        scope.setData(testData);
-        expect(scope.model.data).toEqual(testData);
-        expect(Object.keys(scope.model.toggles).length).toBe(2);
-        expect(scope.model.toggles["1"]).toBe(false);
-        expect(scope.model.toggles["2"]).toBe(false);
+    it("should open the story dialog", function() {
+        var story = {title: 'test title'};
+        spyOn(ngDialog, 'open');
+        scope.openStory(story);
+        expect(ngDialog.open).toHaveBeenCalled();
+        scope.$emit("ngDialog.opened", story)
     });
 
-    it("should have right toggle states when toggling all stories", function() {
-        scope.setData(testData);
-        scope.toggleAllStories();
-        expect(scope.model.toggles["1"]).toBe(true);
-        expect(scope.model.toggles["2"]).toBe(true);
+    it("should open the options dialog", function() {
+        spyOn(ngDialog, 'open');
+        scope.openSettings();
+        expect(ngDialog.open).toHaveBeenCalled();
     });
 });

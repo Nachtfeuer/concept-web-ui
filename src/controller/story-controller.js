@@ -11,81 +11,31 @@
      *  - expand/collapse of an individual story (or all)
      *  - filtering of the table.
      */
-    angular.module('concept').controller('StoryController', ['$rootScope', '$scope', '$cookies', 'StoryService', 'ToggleService', 'ngDialog'
-        , function ($rootScope, $scope, $cookies, StoryService, ToggleService, ngDialog) {
+    angular.module('concept').controller('StoryController', ['$rootScope', '$scope', '$cookies', 'StoryService', 'ToggleService', 'ModelService', 'ngDialog'
+        , function ($rootScope, $scope, $cookies, StoryService, ToggleService, ModelService, ngDialog) {
             // map services to scope
             $scope.storyService = StoryService;
             $scope.toggleService = ToggleService;
+            $scope.modelService = ModelService;
             $scope.model = model;
-
-            $scope.data = {};
-            $scope.sortKey = "id";
-            $scope.reverseOrder = false;
-            $scope.searchStory = "";
-            $scope.toggles = {};
-            $scope.allExpanded = false;
-
-            $scope.options = { hideDoneStories: false, hideStoryLabels: false, hideDoneTasks: false };
 
             // loading JSON data
             $.getJSON("data.json", function (data) {
-                $scope.setData(data);
-            });
-
-            /**
-             * @ngdoc method
-             * @name setData
-             * @methodOf concept.controller:StoryController
-             * @description
-             * Does replace whole data and update all toggle state to false.
-             */
-            $scope.setData = function(data) {
                 $scope.$apply(function () {
-                    $scope.model.data = data;
-                    // adjust initial toggle states.
-                    for (var i=0; i < $scope.model.data.stories.length; ++i) {
-                        $scope.model.toggles[$scope.model.data.stories[i].id] = false;
-                    }
+                    $scope.modelService.setData($scope.model, data);
                 });
-            };
+            });
 
             $scope.sortFunction = function(story) {
                 return $scope.storyService.sortFunction(story, $scope.model.sortKey);
             };
 
-            /**
-             * @ngdoc method
-             * @name toggleAllStories
-             * @methodOf concept.controller:StoryController
-             * @description
-             * The outer left cell of the column header offers a +/- to expand/collapse
-             * all stories at once. This is the function for this action.
-             */
-            $scope.toggleAllStories = function () {
-                $scope.toggleService.setAllToggleStates($scope.model.toggles, !$scope.model.allExpanded);
-                $scope.model.allExpanded = !$scope.model.allExpanded;
-            };
-
-            /**
-             * @ngdoc method
-             * @name showStory
-             * @methodOf concept.controller:StoryController
-             * @description
-             * Filter to show stories which are not done only (when option is set)
-             */
             $scope.showStory = function(story) {
-                return $scope.storyService.getState(story) !== 'done' || !$scope.model.options.hideDoneStories;
+                return $scope.modelService.showStory($scope.model, story);
             };
 
-            /**
-             * @ngdoc method
-             * @name showTask
-             * @methodOf concept.controller:StoryController
-             * @description
-             * Filter to show tasks which are not done only (when option is set)
-             */
             $scope.showTask = function(task) {
-                return task.state !== 'done' || !$scope.model.options.hideDoneTasks;
+                return $scope.modelService.showTask($scope.model, task);
             };
 
             /**
@@ -115,6 +65,11 @@
                 ngDialog.open({
                     template: 'story-dialog'
                     , className: 'ngdialog ngdialog-theme-default'
+                    , preCloseCallback: function(value) {
+                        if (value !== undefined) {
+                            $scope.modelService.updateStory($scope.model, angular.copy(value));
+                        }
+                    }
                 });
 
                 $scope.$on('ngDialog.opened', function () {

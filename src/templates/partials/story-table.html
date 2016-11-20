@@ -1,7 +1,7 @@
 <table class="table table-bordered table-striped table-hover table-condensed">
     <tr>
         <th class="hidden-print">
-            <a ng-click="toggleAllStories()">
+            <a ng-click="modelService.toggleAllStories(model)">
                 <span ng-show="!allExpanded" class="glyphicon glyphicon-plus"></span>
                 <span ng-show=" allExpanded" class="glyphicon glyphicon-minus"></span>
             </a>
@@ -23,9 +23,9 @@
     <tr ng-repeat="story in model.data.stories | orderBy:sortFunction:model.reverseOrder | filter:model.searchStory | filter:showStory">
         <td class="hidden-print">
             <a ng-show="story.tasks.length > 0" ng-click="toggleService.toggleState(model.toggles, story.id)">
-                <span ng-show="!toggleService.isExpanded(toggles, story.id)"
+                <span ng-show="!toggleService.isExpanded(model.toggles, story.id)"
                       class="glyphicon glyphicon-plus"></span>
-                <span ng-show="toggleService.isExpanded(toggles, story.id)"
+                <span ng-show="toggleService.isExpanded(model.toggles, story.id)"
                       class="glyphicon glyphicon-minus"></span>
             </a>
         </td>
@@ -59,7 +59,7 @@
         </td>
         <td>
             {{storyService.getState(story)}}
-            <div ng-show="toggleService.isExpanded(toggles, story.id)" ng-repeat="task in story.tasks | filter:showTask">
+            <div ng-show="toggleService.isExpanded(model.toggles, story.id)" ng-repeat="task in story.tasks | filter:showTask">
                 <small>{{task.state}}</small>
             </div>
         </td>

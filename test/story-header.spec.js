@@ -3,13 +3,13 @@
 describe("Story Header Directive", function () {
     var compile;
     var scope;
-    
+
     function compileElement(element) {
         var compiledElement = compile(angular.element(element))(scope);
         scope.$digest();
         return compiledElement;
     }
-    
+
     beforeEach(module('ConceptDirectives'));
     beforeEach(inject(function ($compile, $rootScope) {
         compile = $compile;
@@ -49,7 +49,7 @@ describe("Story Header Directive", function () {
         var link = compiledDirective.find('a');
         link.triggerHandler('click');
         scope.$digest;
-        
+
         expect(isolatedScope.sortKey).toBe('title');
         expect(isolatedScope.reverseOrder).toBe(true);
         // clicking the same column again does toggle reverse ordering
