@@ -76,10 +76,10 @@ module.exports = function (grunt) {
                         ]
                     }
                     , thresholdReporter: {
-                        statements: 95,
-                        branches: 92,
-                        functions: 90,
-                        lines: 95
+                        statements: 96,
+                        branches: 94,
+                        functions: 92,
+                        lines: 96
                     }
                 }
             }

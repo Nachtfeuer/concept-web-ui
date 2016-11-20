@@ -59,26 +59,55 @@
 
         /**
          * @ngdoc method
+         * @name indexOfStory
+         * @methodOf ConceptServices.service:ModelService
+         * @description
+         * Trying to find index of given story
+         * @param {object} story the story for which to find the index.
+         * @returns {int} >= 0 when found otherwise -1
+         */
+        this.indexOfStory = function(model, story) {
+            for (var i in model.data.stories) {
+                if (model.data.stories[i].id == story.id) {
+                    return i;
+                }
+            }
+            return -1;
+        };
+
+        /**
+         * @ngdoc method
+         * @name nextId
+         * @methodOf ConceptServices.service:ModelService
+         * @description
+         * Trying to find next id for a new story
+         * @param {object} model that contains all stories.
+         * @returns {int} next id for story.
+         */
+        this.nextId = function(model) {
+            return Math.max.apply(Math,
+                model.data.stories.map(function(story){return story.id;})) + 1;
+        };
+
+        /**
+         * @ngdoc method
          * @name updateStory
          * @methodOf ConceptServices.service:ModelService
          * @description
          * Update the list of stories for given story which means that
          * existing story with same id will be replaced, otherwise it
          * will be added.
+         * @param {object} model that contains all stories.
+         * @param {story} story to update or add.
          */
         this.updateStory = function(model, story) {
-            var maxId = 0;
-            for (var i=0; i < model.data.stories.length; ++i) {
-                if (model.data.stories[i].id === story.id) {
-                    model.data.stories[i] = story;
-                    return;
-                }
-                if (model.data.stories[i].id > maxId) {
-                    maxId = model.data.stories[i].id;
-                }
+            var i = this.indexOfStory(model, story);
+            if (i >= 0) {
+                model.data.stories[i] = story;
+                return;
             }
-            // adding new story
-            story.id = maxId + 1;
+
+            story.id = this.nextId(model);
             model.data.stories.push(story);
         };
     }]);
