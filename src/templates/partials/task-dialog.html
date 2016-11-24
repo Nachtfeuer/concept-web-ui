@@ -1,0 +1,39 @@
+<script type="text/ng-template" id="task-dialog">
+    <div class="ngdialog-message" ng-controller="TaskDialogController">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" ng-model="task.title" id="title">
+
+            <label for="effort">Effort:</label>
+            <select class="form-control" ng-model="task.effort" id="effort">
+                <option value="soon">Soon</option>
+                <option value="days">Days</option>
+                <option value="weeks">Weeks</option>
+                <option value="unknown">Unknown</option>
+            </select>
+
+            <label for="complexity">Complexity:</label>
+            <select class="form-control" ng-model="task.complexity" id="complexity">
+                <option value="easy">Easy</option>
+                <option value="moderate">Moderate</option>
+                <option value="difficult">Difficult</option>
+                <option value="unknown">Unknown</option>
+            </select>
+
+            <label for="state">State:</label>
+            <select class="form-control" ng-model="task.state" id="state">
+                <option value="todo">Todo</option>
+                <option value="wip">Wip</option>
+                <option value="done">Done</option>
+            </select>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button"
+                    class="ngdialog-button ngdialog-button-secondary"
+                    ng-click="closeThisDialog(task)">Save Task</button>
+            <button type="button"
+                    class="ngdialog-button ngdialog-button-primary"
+                    ng-click="closeThisDialog()">Close</button>
+        </div>
+    </div>
+</script>

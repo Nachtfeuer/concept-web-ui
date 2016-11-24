@@ -38,6 +38,13 @@ describe("Story Controller", function () {
         expect(scope.model.options.hideStoryLabels).toBe(false);
     });
 
+    // just a probe ... the internally used function is tested in a separate spec.
+    it("should provide complexity 'moderate'", function () {
+        var story = {tasks: [{complexity: 'easy'}, {complexity: 'difficult'}]};
+        scope.model.sortKey = "avg complexity";
+        expect(scope.sortFunction(story)).toBe('moderate');
+    });
+
     it("should show done stories when enabled", function() {
         var story = {tasks: [{state: "done"}]};
         expect(scope.showStory(story)).toBe(true);
@@ -72,5 +79,15 @@ describe("Story Controller", function () {
         spyOn(ngDialog, 'open');
         scope.openSettings();
         expect(ngDialog.open).toHaveBeenCalled();
+    });
+
+    it("should handle story pre close callback correctly", function() {
+        scope.model.data = testData;
+        scope.storyPreCloseCallback(undefined);
+        expect(scope.model.data.stories[0].title).toBe("story one");
+        scope.storyPreCloseCallback("$closeButton");
+        expect(scope.model.data.stories[0].title).toBe("story one");
+        scope.storyPreCloseCallback({id: 1, title: "story one (changed)"});
+        expect(scope.model.data.stories[0].title).toBe("story one (changed)");
     });
 });

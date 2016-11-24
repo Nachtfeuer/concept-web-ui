@@ -461,5 +461,29 @@
                 }
             ]
         }
+        , {
+            "id": 17
+            , "title": "Adding stories and tasks"
+            , "priority": "normal"
+            , "labels": [
+                "ui", "story", "task", "2.0"
+            ]
+            , "tasks": [
+                {
+                    "id": 1
+                    , "title": "Adding a story (without tasks)"
+                    , "state": "todo"
+                    , "complexity": "moderate"
+                    , "effort": "soon"
+                }
+                ,{
+                    "id": 2
+                    , "title": "Adding a task to an existing story"
+                    , "state": "todo"
+                    , "complexity": "moderate"
+                    , "effort": "soon"
+                }
+            ]
+        }
     ]
 }

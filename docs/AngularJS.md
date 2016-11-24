@@ -116,3 +116,46 @@ You should have seen that already from the example with the search field.
 
 Have a look at [math-table.html](examples/math-table.html)!
 ![Math Table](images/math-table.png)
+
+## How to do simple dialogs
+
+Basically you write function that is called to open a dialog; there's an api for it.
+Additionally you require a block of HTML code representing a dialog that is not seen
+initially. The block does have a unique id which is addressed in the open call.
+Exchanging data you can do via parameter data. Whatever you pass is shared in the
+separate dialog scope in the injected field `ngDialogData`. The `preCloseCallback`
+does allow you to get back the modified data.
+
+The function looks like this
+```
+$scope.openDialog = function(index, entry) {
+    ngDialog.open({
+        template: 'simple-dialog'
+        , className: 'ngdialog ngdialog-theme-default'
+        , data: {entry: entry, index: index}
+        , preCloseCallback: function(newData) {
+            if (newData !== undefined && newData != "$closeButton") {
+                console.log(newData);
+                $scope.data[newData.index] = newData.entry;
+            }
+        }
+    });
+};
+```
+
+The HTML code looks like this
+```
+<div ng-repeat="entry in data">
+    <button type="button" class="btn btn-default" ng-click="openDialog($index, entry)" style="width:200px">
+        Open Dialog ({{entry}})
+    </button>
+</div>
+```
+
+When you click on the button the value is editable in the dialog. When you click save in the dialog
+you write back the modified value which is passed to the pre close callback. Since the data can be
+shared you know the index of the value and can change it. Of course the index also could be a key
+in a dictionary or whatever you like to know where to store the changed value.
+
+Have a look at [simple-dialog.html](examples/simple-dialog.html)!
+![Simple Dialog](images/simple-dialog.png)

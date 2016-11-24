@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="simple">
+    <head>
+        <title>Simple Dialog</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.6.4/css/ngDialog-theme-default.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.6.4/css/ngDialog.css">
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.6.4/js/ngDialog.js"></script>
+
+        <script type="text/javascript">
+        angular.module('simple', ['ngDialog']);
+        angular.module('simple').controller("SimpleController", ['$scope', 'ngDialog', function($scope, ngDialog) {
+            $scope.data = [ "one", "two", "three"];
+            $scope.openDialog = function(index, entry) {
+                ngDialog.open({
+                    template: 'simple-dialog'
+                    , className: 'ngdialog ngdialog-theme-default'
+                    , data: {entry: entry, index: index}
+                    , preCloseCallback: function(newData) {
+                        if (newData !== undefined && newData != "$closeButton") {
+                            console.log(newData);
+                            $scope.data[newData.index] = newData.entry;
+                        }
+                    }
+                });
+            };
+        }]);
+        </script>
+    </head>
+
+    <body ng-controller="SimpleController">
+        <div ng-repeat="entry in data">
+            <button type="button" class="btn btn-default" ng-click="openDialog($index, entry)" style="width:200px">
+                Open Dialog ({{entry}})
+            </button>
+        </div>
+
+        <script type="text/ng-template" id="simple-dialog">
+            <div class="ngdialog-message">
+                Hello<br/>
+                <input type="test" ng-model="ngDialogData.entry"><br/>
+                <div class="ngdialog-buttons">
+                    <button type="button"
+                            class="ngdialog-button ngdialog-button-secondary"
+                            ng-click="closeThisDialog(ngDialogData)">Save</button>
+                </div>
+            </div>
+        </script>
+    </body>
+</html>

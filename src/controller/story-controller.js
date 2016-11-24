@@ -38,6 +38,12 @@
                 return $scope.modelService.showTask($scope.model, task);
             };
 
+            $scope.storyPreCloseCallback = function(value) {
+                if (value !== undefined && value != "$closeButton") {
+                    $scope.modelService.updateStory($scope.model, angular.copy(value));
+                }
+            };
+
             /**
              * @ngdoc method
              * @name openSettings
@@ -65,16 +71,9 @@
                 ngDialog.open({
                     template: 'story-dialog'
                     , className: 'ngdialog ngdialog-theme-default'
-                    , preCloseCallback: function(value) {
-                        if (value !== undefined) {
-                            $scope.modelService.updateStory($scope.model, angular.copy(value));
-                        }
-                    }
-                });
-
-                $scope.$on('ngDialog.opened', function () {
-                    $rootScope.$broadcast('storyEvent', angular.copy(story));
-                });
+                    , data: angular.copy(story)
+                    , preCloseCallback: $scope.storyPreCloseCallback
+                 });
             };
     }]);
 })();

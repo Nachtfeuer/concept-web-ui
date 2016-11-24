@@ -31,7 +31,7 @@
                         <option value="soon">Soon</option>
                         <option value="days">Days</option>
                         <option value="weeks">Weeks</option>
-                        <option value="unknonw">Unknown</option>
+                        <option value="unknown">Unknown</option>
                     </select>
                 </td>
                 <td>
@@ -42,16 +42,19 @@
                     </select>
                 </td>
                 <td>
-                    <a class="glyphicon glyphicon-trash" ng-click="story.tasks.splice(story.tasks.indexof(task), 1)"></a>
+                    <a class="glyphicon glyphicon-trash" ng-click="removeTaskAtIndex($index)"></a>
                 </td>
             </tr>
         </table>
         <div class="ngdialog-buttons">
             <button type="button"
+                    class="ngdialog-button ngdialog-button-secondary pull-left"
+                    ng-click="openNewTaskDialog()">Add Task</button>
+            <button type="button"
                     class="ngdialog-button ngdialog-button-secondary"
                     ng-click="closeThisDialog(story)">Save Story</button>
             <button type="button"
-                    class="ngdialog-button ngdialog-button-primary pull-right"
+                    class="ngdialog-button ngdialog-button-primary"
                     ng-click="closeThisDialog()">Close</button>
         </div>
     </div>
