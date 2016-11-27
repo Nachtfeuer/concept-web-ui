@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to examples using Bootstrap CSS</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <style>
+            .sidebar {
+                top: 50px;
+                position: fixed;
+                height: 100%;
+            }
+
+            .sidebar-nav {
+                list-style: none;
+                padding: 5px;
+                margin: 0px;
+            }
+
+            .sidebar-nav .navbar li {
+                float: none;
+                padding-bottom: 5px;
+            }
+        </style>
+    </head>
+
+    <body style="padding-top: 60px">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Bootstrap CSS Examples</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">External Links<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://getbootstrap.com/css/">Bootstrap CSS</a></li>
+                            <li><a href="http://getbootstrap.com/components/">Bootstrap CSS Components</a></li>
+                            <li><a href="https://jquery.com/">jQuery</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="https://github.com/Nachtfeuer/concept-web-ui">Concept Web UI</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page Links<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#text-alignment">Text Allignment</a></li>
+                            <li><a href="#block-quotes">Block Quotes</a></li>
+                            <li><a href="#alerts">Alerts</a></li>
+                            <li><a href="#panels">Panels</a></li>
+                            <li><a href="#the-navigation-bar">The Navigation Bar</a></li>
+                            <li><a href="#tables">Tables</a></li>
+                            <li><a href="#using-grids">Using Grids</a></li>
+                            <li><a href="#sidebar">Sidebar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="sidebar navbar-inverse hidden-print">
+            <ul class="sidebar-nav">
+                <li><a class="navbar-link" href="#text-alignment">Text Allignment</a></li>
+                <li><a class="navbar-link" href="#block-quotes">Block Quotes</a></li>
+                <li><a class="navbar-link" href="#alerts">Alerts</a></li>
+                <li><a class="navbar-link" href="#panels">Panels</a></li>
+                <li><a class="navbar-link" href="#the-navigation-bar">The Navigation Bar</a></li>
+                <li><a class="navbar-link" href="#tables">Tables</a></li>
+                <li><a class="navbar-link" href="#using-grids">Using Grids</a></li>
+                <li><a class="navbar-link" href="#sidebar">Sidebar</a></li>
+            </ul>
+        </div>
+
+        <div class="container" style="padding-left: 60px">
+            <div class="page-header">
+                <h2>Welcome to examples using Bootstrap CSS</h2>
+            </div>
+            <p>
+                Using <b>CDN</b> bootstrap is included here without the need of <b>bower</b>.
+                I made this example to bring some examples on using
+                <span class="label label-success">Bootstrap</span> on one page. It's not
+                a reference documentation. Finally please check <a href="http://getbootstrap.com/css/">http://getbootstrap.com/css/</a>.
+                You should be able to download and view this file in your browser.
+            </p>
+            <p>
+                The page header is a div with class <b>page-header</b> and the title
+                is a <b>h2</b>. You should see Bootstrap as a green label; it's just a
+                <b>span</b> with two attributes: <b>label</b> and <b>label-success</b>.
+                You can use pre-defined colors for labels using
+                <span class="label label-default">label-default</span>,
+                <span class="label label-info">label-info</span>,
+                <span class="label label-success">label-success</span>,
+                <span class="label label-warning">label-warning</span> and
+                <span class="label label-danger">label-danger</span>. Same naming conventions you will
+                find for other Bootstrap styling.
+            </p>
+
+            <h3 id="text-alignment">Text Alignment</h3>
+            <p class="text-center">
+                <span class="pull-left bg-info">I'm on the left side</span>
+                <span class="bg-info">I'm in the middle.</span>
+                <span class="pull-right bg-info">I'm on the right side</span>
+            </p>
+            <p>
+                The alignments are done with <b>text-center</b> on the paragraph class, <b>pull-left</b>
+                for left text span class and <b>pull-right</b> for the right text span class. Have
+                a read here: <a href="http://getbootstrap.com/css/#type-alignment">http://getbootstrap.com/css/#type-alignment</a>.
+            </p>
+
+            <h3 id="block-quotes">Block Quotes</h3>
+            <blockquote style="border-left: 5px solid green">
+                <p>When something is too easy then - very probably - there is somewhere at least one problem you don't see.</p>
+                <footer>Me <cite>"own experiences"</cite></footer>
+            </blockquote>
+
+            <p>
+                For block quotes you are using <b>blockquote</b>, <b>footer</b> and <b>cite</b>.
+                Have a read here: <a href="http://getbootstrap.com/css/#type-blockquotes">http://getbootstrap.com/css/#type-blockquotes</a>. You have to use
+                normal styling to change the blockquote; here I overwrite the default color with a green border
+                using <code>style="border-left: 5px solid green"</code>.
+            </p>
+
+            <h3 id="alerts">Alerts</h3>
+            <p>
+                Alerts are div boxes which prefined colors as you already know from the labels.
+                Here the class names are <b>alert</b> and <b>alert-warning</b>. In addition you
+                are able to define a <b>dismissible</b> alert.
+            </p>
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+                <strong>Warning!</strong> Something went wrong.
+            </div>
+
+            <h3 id="panels">Panels</h3>
+            <div class="panel panel-success">
+                <div class="panel-heading">Simple Panel Title</div>
+                <div class="panel-body">
+                    Panels are also just div's with other CSS styles. A panel can have a
+                    title and a body represented by <code>panel-heading</code> and
+                    <code>panel-body</code>. The outter div is again handle same way
+                    as labels using classes <code>panel</code> and <code>pabel-success</code>.
+                    Panels are working smoothely with lists and tables.
+                </div>
+            </div>
+
+            <h3 id="the-navigation-bar">The Navigation Bar</h3>
+            <p>
+                I have to say that it did cost me some nerves. The setup isn't that complicated
+                but for dropdown you require jQuery and I included the dependencies in wrong
+                order and wondered why the "simple" example doesn't work. However now it does work.
+                Look at this HTML to see how it is organized. You should have a <b>brand</b> and
+                then you are working with <b>ul</b>, <b>li</b> and links. The dropdown symbol
+                is done with <code>&lt;span class="caret"&gt;&lt;/span&gt;</code>.
+                You can adjust the navigation either to scroll it with the page or to remain
+                visible. I adjusted it with <code>navbar-fixed-top</code> to remain visible
+                at top of the page; for this case you additional have to apply padding yourself.
+                The navigation bar is hidden when you print this HTML. Please have a read here:
+                <a href="http://getbootstrap.com/components/#nav">http://getbootstrap.com/components/#nav</a>.
+            </p>
+
+            <h3 id="tables">Tables</h3>
+            <p>
+                Tables are more or less same as you know. You just can apply a few classes to make
+                a table look comfortable:
+
+                <table class="table table-condensed table-striped table-bordered">
+                    <tr>
+                        <th>Style</th>
+                        <th>Meaning</th>
+                    </tr>
+                    <tr>
+                        <td>table</td>
+                        <td>You see the table with the width of the page and a horizontal rule between each row.</td>
+                    </tr>
+                    <tr>
+                        <td>table-condensed</td>
+                        <td>Consume less space in each table cell.</td>
+                    </tr>
+                    <tr>
+                        <td>table-striped</td>
+                        <td>Provides alternating row colors</td>
+                    </tr>
+                    <tr>
+                        <td>table-bordered</td>
+                        <td>Provides full bordering for each cell</td>
+                    </tr>
+                </table>
+                Have a read here <a href="http://getbootstrap.com/css/#tables">http://getbootstrap.com/css/#tables</a>.
+            </p>
+
+            <h3 id="using-grids">Using Grids</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 bg-success">1<span class="pull-right">(col-md-2)</span></div>
+                    <div class="col-md-2 bg-warning">2<span class="pull-right">(col-md-2)</span></div>
+                    <div class="col-md-2 bg-success">3<span class="pull-right">(col-md-2)</span></div>
+                    <div class="col-md-2 bg-warning">4<span class="pull-right">(col-md-2)</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 bg-warning">5<span class="pull-right">(col-md-4)</span></div>
+                    <div class="col-md-4 bg-success">6<span class="pull-right">(col-md-4)</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 bg-success">7<span class="pull-right">(col-md-8)</span></div>
+                </div>
+            </div>
+            <p>
+                Using grids you have to use classes to indicate what cell with you need. You can use
+                <code>col-xs-*</code>, <code>col-sm-*</code>, <code>col-md-*</code> and <code>col-lg-*</code>
+                which are designed for different device sizes. Please read the details here:
+                <a href="getbootstrap.com/css/#grid">getbootstrap.com/css/#grid</a>.
+            </p>
+
+            <h3 id="sidebar">Sidebar</h3>
+            <p>
+                Unfortunately a sidebar is not provided also it's a basic component in many pages.
+                However I provided a simple one using parts of the navbar. Also this one is
+                hidden when you try to print the page.
+            </p>
+        </div>
+    </body>
+</html>
