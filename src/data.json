@@ -479,7 +479,7 @@
                 ,{
                     "id": 2
                     , "title": "Adding a task to an existing story"
-                    , "state": "todo"
+                    , "state": "done"
                     , "complexity": "moderate"
                     , "effort": "soon"
                 }

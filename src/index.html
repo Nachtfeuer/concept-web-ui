@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Stories &amp; Tasks</title>
 
+        <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+
         <!-- CSS -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="lib/bootstrap-css/css/bootstrap.min.css">
@@ -15,7 +17,7 @@
         <link rel="stylesheet" href="css/concept.css">
 
         <!-- Libraries -->
-        <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="lib/bootstrap-css/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="lib/angularjs/angular.min.js"></script>
         <script type="text/javascript" src="lib/angular-cookies/angular-cookies.min.js"></script>
         <script type="text/javascript" src="lib/ng-dialog/js/ngDialog.js"></script>
@@ -32,23 +34,48 @@
         <script src="controller/task-dialog-controller.js"></script>
     </head>
 
-    <body>
-        <div class="container" ng-controller="StoryController">
-
-            <div class="page-header">
-                <ng-include src="'templates/partials/story-statistic.html'"></ng-include>
-                <h1>Stories &amp; Tasks</h1>
-            </div>
-
-            <form class="hidden-print">
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                        <input type="text" class="form-control" placeholder="Search for a story" ng-model="model.searchStory">
-                    </div>
+    <body style="padding-top: 60px" ng-controller="StoryController">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Stories &amp; Tasks</a>
                 </div>
-            </form>
+                <div class="navbar-form">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                                <input type="text" class="form-control" placeholder="Search for a story" size="40" ng-model="model.searchStory">
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><span class="label label-default" style="margin-right: 5px">
+                        Number of stories: {{model.data.stories.length}}</span></li>
+                        <li><span class="label label-default" style="margin-right: 5px">
+                        Number of all tasks: {{storyService.getNumberOfAllTasks(model.data.stories)}}</span></li>
+                        <li><span class="label label-default" style="margin-right: 20px">
+                        Tasks per state:
+                        <b>{{storyService.getNumberOfAllTasksByState(model.data.stories, 'done')}} /
+                           {{storyService.getNumberOfAllTasksByState(model.data.stories, 'todo')}} /
+                           {{storyService.getNumberOfAllTasksByState(model.data.stories, 'wip')}}</b>
+                        </span></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">External Links<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://getbootstrap.com/css/">Bootstrap CSS</a></li>
+                                <li><a href="http://getbootstrap.com/components/">Bootstrap CSS Components</a></li>
+                                <li><a href="https://jquery.com/">jQuery</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="https://github.com/Nachtfeuer/concept-web-ui">Concept Web UI (GitHub)</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
+        <div class="container">
             <ng-include src="'templates/partials/story-table.html'"></ng-include>
         </div>
 
